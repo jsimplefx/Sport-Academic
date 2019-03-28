@@ -11,7 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox layoutX="14.0" layoutY="14.0" prefHeight="280.0" prefWidth="380.0" spacing="10.0" style="-fx-background-color: #2980b9;" styleClass="tiles" stylesheets="@../StyleCheet/style.css" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
+      <VBox layoutX="14.0" layoutY="14.0" prefHeight="280.0" prefWidth="380.0" spacing="10.0" style="-fx-background-color: #2980b9;" styleClass="tiles" stylesheets="@../Stylesheet/style.css" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0">
          <children>
             <FontAwesomeIconView fill="#e8e5e5" glyphName="FLASK" size="100">
                <VBox.margin>
@@ -34,7 +34,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </VBox>
-      <VBox layoutX="14.0" layoutY="306.0" prefHeight="280.0" prefWidth="380.0" spacing="10.0" style="-fx-background-color: #16a085;" styleClass="tiles" stylesheets="@../StyleCheet/style.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0">
+      <VBox layoutX="14.0" layoutY="306.0" prefHeight="280.0" prefWidth="380.0" spacing="10.0" style="-fx-background-color: #16a085;" styleClass="tiles" stylesheets="@../Stylesheet/style.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0">
          <children>
             <FontAwesomeIconView fill="#e8e5e5" glyphName="LANGUAGE" size="100">
                <VBox.margin>
@@ -57,7 +57,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </VBox>
-      <VBox layoutX="406.0" layoutY="14.0" prefHeight="280.0" prefWidth="380.0" spacing="10.0" style="-fx-background-color: #e74c3c;" styleClass="tiles" stylesheets="@../StyleCheet/style.css" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+      <VBox layoutX="406.0" layoutY="14.0" prefHeight="280.0" prefWidth="380.0" spacing="10.0" style="-fx-background-color: #e74c3c;" styleClass="tiles" stylesheets="@../Stylesheet/style.css" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
          <children>
             <FontAwesomeIconView fill="#e8e5e5" glyphName="HOURGLASS_1" size="100">
                <VBox.margin>
@@ -80,7 +80,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </VBox>
-      <VBox layoutX="406.0" layoutY="306.0" prefHeight="280.0" prefWidth="380.0" spacing="10.0" style="-fx-background-color: #e67e22;" styleClass="tiles" stylesheets="@../StyleCheet/style.css" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
+      <VBox layoutX="406.0" layoutY="306.0" prefHeight="280.0" prefWidth="380.0" spacing="10.0" style="-fx-background-color: #e67e22;" styleClass="tiles" stylesheets="@../Stylesheet/style.css" AnchorPane.bottomAnchor="14.0" AnchorPane.rightAnchor="14.0">
          <children>
             <FontAwesomeIconView fill="#e8e5e5" glyphName="BULLSEYE" size="100">
                <VBox.margin>

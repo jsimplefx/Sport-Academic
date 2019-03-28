@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="annotations-16.0.2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/annotations-16.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/controlsfx-8.40.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fontawesomefx-8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fontawesomefx-commons-8.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fontawesomefx-fontawesome-4.7.0-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jfoenix-8.0.7.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/joda-time-2.9.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/recurrence-8.5.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sqlite-jdbc-3.23.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/view-8.5.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

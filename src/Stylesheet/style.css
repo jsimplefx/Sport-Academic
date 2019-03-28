@@ -1,0 +1,8 @@
+/*dem curves*/
+.tiles{
+
+  -fx-border-radius: 10 10 10 10;
+  -fx-background-radius: 10 10 10 10;
+
+  /* top-left, top-right, bottom-right, and bottom-left corners, in that order. */
+}
