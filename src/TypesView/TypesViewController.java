@@ -1,4 +1,4 @@
-package Game;
+package TypesView;
 
-public class GameController {
+public class TypesViewController {
 }

@@ -31,7 +31,7 @@ public class SplashController implements Initializable {
                     public void run() {
                         Parent root;
                         try {
-                            root = FXMLLoader.load(getClass().getResource("../Splash/Splash.fxml"));
+                            root = FXMLLoader.load(getClass().getResource("../TypesView/TypesView.fxml"));
                             Scene scene = new Scene(root);
                             Stage stage = new Stage();
                             stage.setScene(scene);
