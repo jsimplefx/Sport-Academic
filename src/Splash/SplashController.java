@@ -16,28 +16,28 @@ import java.util.ResourceBundle;
 
 public class SplashController implements Initializable {
     @FXML
-    private AnchorPane rootPane;
+    private AnchorPane rootPane; // parent anchor pane
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-            new Splash().start();
+            new Splash().start(); // start the new thread
     }
 
-    class Splash extends Thread{
+    class Splash extends Thread{ // different thread for the splash
         @Override
         public void run() {
             try {
-                Thread.sleep(5000);
-                Platform.runLater(new Runnable() {
+                Thread.sleep(5000); // sleep 5 seconds
+                Platform.runLater(new Runnable() { // surpassing the javafx one thread thingy
                     @Override
                     public void run() {
-                        Parent root;
+                        Parent root; // new root
                         try {
-                            root = FXMLLoader.load(getClass().getResource("../TypesView/TypesView.fxml"));
-                            Scene scene = new Scene(root);
-                            Stage stage = new Stage();
-                            stage.setScene(scene);
-                            stage.show();
-                            rootPane.getScene().getWindow().hide();
+                            root = FXMLLoader.load(getClass().getResource("../TypesView/TypesView.fxml")); // load new view
+                            Scene scene = new Scene(root); // new scene
+                            Stage stage = new Stage(); // new stage
+                            stage.setScene(scene); // set stage scene
+                            stage.show(); // show the new stage
+                            rootPane.getScene().getWindow().hide(); // hide the old pane(stage)
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
