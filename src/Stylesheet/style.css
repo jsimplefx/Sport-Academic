@@ -1,8 +1,13 @@
 /*dem curves*/
-.tiles{
+.tiles {
 
   -fx-border-radius: 10 10 10 10;
   -fx-background-radius: 10 10 10 10;
 
   /* top-left, top-right, bottom-right, and bottom-left corners, in that order. */
+}
+.pane:hover {
+   -fx-scale-y: 1.02;
+   -fx-scale-x: 1.02;
+
 }

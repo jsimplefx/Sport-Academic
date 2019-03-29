@@ -21,6 +21,7 @@ public class SplashController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
             new Splash().start();
     }
+
     class Splash extends Thread{
         @Override
         public void run() {
