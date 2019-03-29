@@ -17,7 +17,7 @@ import java.util.ResourceBundle;
 public class TypesViewController implements Initializable {
 
     @FXML
-    private GridPane rootPane;
+    private GridPane rootPane; // the root pane
 
     @FXML
     private BorderPane typeA;
@@ -52,9 +52,10 @@ public class TypesViewController implements Initializable {
         }
     }
 
-    private void startQuiz(String Sauce) {
+    private void startQuiz(String Sauce) { // sauce will be used later ot set the questions based on passed pane name
         Parent root;
         try {
+            // load the questions view
             root = FXMLLoader.load(getClass().getResource("../QuesView/QuesView.fxml"));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
