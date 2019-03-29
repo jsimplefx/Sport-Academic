@@ -3,6 +3,7 @@
     <words>
       <w>borderpane</w>
       <w>gridpane</w>
+      <w>hbox</w>
     </words>
   </dictionary>
 </component>
