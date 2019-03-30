@@ -2,8 +2,11 @@
   <dictionary name="blacksuan19">
     <words>
       <w>borderpane</w>
+      <w>disbtns</w>
       <w>gridpane</w>
       <w>hbox</w>
+      <w>qtime</w>
+      <w>quenum</w>
     </words>
   </dictionary>
 </component>
