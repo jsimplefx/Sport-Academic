@@ -26,10 +26,22 @@ public class TypesViewController implements Initializable {
     private BorderPane typeB;
 
     @FXML
+    private BorderPane typeE;
+
+    @FXML
+    private BorderPane typeF;
+
+    @FXML
     private BorderPane typeC;
 
     @FXML
     private BorderPane typeD;
+
+    @FXML
+    private BorderPane typeH;
+
+    @FXML
+    private BorderPane typeI;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -52,18 +64,38 @@ public class TypesViewController implements Initializable {
         }
     }
 
-    private void startQuiz(String Sauce) { // sauce will be used later ot set the questions based on passed pane name
+    private void startQuiz(String Sauce) {
         Parent root;
-        try {
-            // load the questions view
-            root = FXMLLoader.load(getClass().getResource("../QuesView/QuesView.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.show();
-            rootPane.getScene().getWindow().hide();
-        } catch (IOException e) {
-            e.printStackTrace();
+        /*
+        load a different view with different questions based on passed type
+        this cant be one file because that way the controller could be over 1000s of lines (conditions and stuff)
+        in this case its better to split it to multiple similar views
+        */
+        if (Sauce.equals("typeA")) {
+            try {
+                // load the questions view
+                root = FXMLLoader.load(getClass().getResource("../QuesView/QuesView.fxml"));
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.show();
+                rootPane.getScene().getWindow().hide();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        else if (Sauce.equals("TypeB")){
+            try {
+                // load the questions view
+                root = FXMLLoader.load(getClass().getResource("../QuesView/QuesView.fxml"));
+                Scene scene = new Scene(root);
+                Stage stage = new Stage();
+                stage.setScene(scene);
+                stage.show();
+                rootPane.getScene().getWindow().hide();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
