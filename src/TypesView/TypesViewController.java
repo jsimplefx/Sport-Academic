@@ -79,7 +79,6 @@ public class TypesViewController implements Initializable {
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.show();
-                rootPane.getScene().getWindow().hide();
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -92,7 +91,6 @@ public class TypesViewController implements Initializable {
                 Stage stage = new Stage();
                 stage.setScene(scene);
                 stage.show();
-                rootPane.getScene().getWindow().hide();
             } catch (IOException e) {
                 e.printStackTrace();
             }
