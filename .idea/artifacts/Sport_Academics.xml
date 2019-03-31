@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact type="javafx" name="Sport Academics">
+    <output-path>$PROJECT_DIR$/out/artifacts/Sport_Academics</output-path>
+    <properties id="javafx-properties">
+      <options>
+        <option name="appClass" value="Main.Main" />
+        <option name="description" value="" />
+        <option name="htmlPlaceholderId" value="" />
+        <option name="title" value="" />
+        <option name="vendor" value="" />
+        <option name="version" value="" />
+      </options>
+    </properties>
+    <root id="root">
+      <element id="archive" name="Sport_Academics.jar">
+        <element id="module-output" name="Sport Academics" />
+      </element>
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/AnimateFX-1.2.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/annotations-16.0.2.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/fontawesomefx-8.9.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/fontawesomefx-commons-8.13.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/fontawesomefx-fontawesome-4.7.0-1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/jfoenix-8.0.7.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/view-8.5.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

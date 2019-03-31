@@ -74,7 +74,7 @@ public class TypesViewController implements Initializable {
         if (Sauce.equals("typeA")) {
             try {
                 // load the questions view
-                root = FXMLLoader.load(getClass().getResource("../QuesView/QuesView.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/QuesView/QuesView.fxml"));
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
                 stage.setScene(scene);
@@ -86,7 +86,7 @@ public class TypesViewController implements Initializable {
         else if (Sauce.equals("TypeB")){
             try {
                 // load the questions view
-                root = FXMLLoader.load(getClass().getResource("../QuesView/QuesView.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/QuesView/QuesView.fxml"));
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
                 stage.setScene(scene);

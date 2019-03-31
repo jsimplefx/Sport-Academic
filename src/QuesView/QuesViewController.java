@@ -256,7 +256,7 @@ public class QuesViewController implements Initializable {
         if (result.isPresent() && result.get() == Yes) { // make sure the button exists first before adding it(intellij 101)
             Parent root;
             try {
-                root = FXMLLoader.load(getClass().getResource("../TypesView/TypesView.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/TypesView/TypesView.fxml"));
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
                 stage.setScene(scene);
