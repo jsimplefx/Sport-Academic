@@ -141,7 +141,7 @@ public class QuesViewController implements Initializable {
             seconds--; // the global seconds variable
             timer.setText(seconds.toString()); // update the timer label
             if (seconds <= 0){
-                disbtns(time, ans1, ans2, timer); // regular disable routine
+                disbtns(time, ans1, ans2, timer, pane); // regular disable routine
             }
         });
         // some timeline stuff
@@ -200,7 +200,7 @@ public class QuesViewController implements Initializable {
                     break;
             }
 
-            disbtns(time, ans1, ans2, timer); // regular disable routine
+            disbtns(time, ans1, ans2, timer, pane); // regular disable routine
         });
 
         ans2.setOnAction(e -> {
@@ -224,18 +224,19 @@ public class QuesViewController implements Initializable {
                     }
                     break;
             }
-            disbtns(time, ans1, ans2, timer); // regular disable routine
+            disbtns(time, ans1, ans2, timer, pane); // regular disable routine
         });
         pane.setOnMouseClicked(null); // disable the passed pane (here is a little lesson in trickery)
     }
 
 
-    // moved to a different function because i have to di this multiple times (all these are passed by reference so any changes here are reflected)
-    private void disbtns(Timeline t, JFXButton a, JFXButton b, Label l){
+    // moved to a different function because i have to do this multiple times (all these are passed by reference so any changes here are reflected)
+    private void disbtns(Timeline t, JFXButton a, JFXButton b, Label l, BorderPane pane){
         t.stop(); // stop the timer
         a.setDisable(true); // disable the button
         b.setDisable(true); // disable the button
         l.setVisible(false); // hide the timer label
+        pane.setCenter(null); // hide the question
         seconds = 10; // reset the interval for the question
     }
 
