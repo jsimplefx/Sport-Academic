@@ -259,6 +259,7 @@ public class QuesViewController implements Initializable {
                 root = FXMLLoader.load(getClass().getResource("/TypesView/TypesView.fxml"));
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
+                stage.setTitle("Sport Academics");
                 stage.setScene(scene);
                 stage.show();
                 rootPane.getScene().getWindow().hide(); // hide the questions view after reloading types

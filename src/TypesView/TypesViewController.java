@@ -77,6 +77,7 @@ public class TypesViewController implements Initializable {
                 root = FXMLLoader.load(getClass().getResource("/QuesView/QuesView.fxml"));
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
+                stage.setTitle(Sauce); // set window name as the passed type
                 stage.setScene(scene);
                 stage.show();
             } catch (IOException e) {
@@ -89,6 +90,7 @@ public class TypesViewController implements Initializable {
                 root = FXMLLoader.load(getClass().getResource("/QuesView/QuesView.fxml"));
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
+                stage.setTitle(Sauce); // set window name as the passed type
                 stage.setScene(scene);
                 stage.show();
             } catch (IOException e) {

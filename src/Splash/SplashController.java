@@ -36,8 +36,9 @@ public class SplashController implements Initializable {
                             Scene scene = new Scene(root); // new scene
                             Stage stage = new Stage(); // new stage
                             stage.setScene(scene); // set stage scene
+                            stage.setTitle("Sport Academics");
                             stage.show(); // show the new stage
-                            rootPane.getScene().getWindow().hide(); // hide the old pane(stage)
+                            rootPane.getScene().getWindow().hide(); // hide the splash pane(stage)
                         } catch (IOException e) {
                             e.printStackTrace();
                         }
