@@ -16,7 +16,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -85,13 +85,16 @@ public class QuesViewController implements Initializable {
 
     private int[] scores = {10, 20}; // the scores
     // for saving the answers to compare with user option later (16 questions and each has 2 answer options)
-    private String[][] Answers = new String[16][2];
+    private String[][] Answers = new String[16][4];
     private final Integer Qtime = 10; // total time to give for each question
     private Integer seconds = Qtime; // need this cuz you cant modify a final variable
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Answers[0][0] = "hmmm"; // how answers are gonna be set later
+        Answers[0][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
+        Answers[0][1] = "changes in the amount of energy coming from the sun";
+        Answers[0][2] = "the distance between the earth and the sun";
+        Answers[0][3] = "the speed that the earth rotates around the sun";
     }
 
     @FXML
@@ -116,127 +119,107 @@ public class QuesViewController implements Initializable {
     private void initQues(int quenum, BorderPane pane){
         Label que = new Label(); // the question label
         que.setTextFill(Color.WHITE); // set the question color
+        que.setWrapText(true); // wrap the text around
         pane.setCenter(que); // set the center of the specific pane as the question
 
-        JFXButton ans1 = new JFXButton(); // yes button
-        JFXButton ans2 = new JFXButton(); // no button
+        JFXButton[] ans = new JFXButton[4];
 
-        ans1.setTextFill(Color.WHITE); // text colors
-        ans2.setTextFill(Color.WHITE); // text colors
-        HBox options = new HBox(); // new hbox
+        for (int i = 0; i < ans.length; i++) {
+            ans[i] = new JFXButton();
+            ans[i].setTextFill(Color.WHITE); // set button text color
+            ans[i].setWrapText(true); // wrap the text aroud
+        }
+
+        // set the question and answers based on passed pane number
+        switch (quenum){
+            case 1:
+                que.setText("What is the main cause of seasons on earth"); // the question
+                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
+                    ans[j].setText(Answers[0][j]);
+                }
+                break;
+
+            case 2:
+                que.setText("question 2"); // the question
+                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
+                    ans[j].setText(Answers[1][j]);
+                }
+                break;
+
+            case 3:
+                que.setText("question 3"); // the question
+                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
+                    ans[j].setText(Answers[2][j]);
+                }break;
+        }
+
+        VBox options = new VBox(); // new hbox
         options.setAlignment(Pos.CENTER); // set the alignment of the items inside
         options.setSpacing(10); // internal spacing
         options.setPadding(new Insets(0, 0, 10 , 0)); // set the padding inside
-        options.getChildren().setAll(ans1, ans2); // add the yes and no bottoms
+        options.getChildren().setAll(ans); // add the yes and no bottoms
         pane.setBottom(options); // put the hbox at the bottom of the Border pane
+
         Label timer = new Label(); // timer label
         timer.setTextFill(Color.WHITE); // color
         pane.setTop(timer); // set timer to top of pane
-        BorderPane.setAlignment(timer, Pos.CENTER); // position the label to the middle of the top part of the borderpane
-        BorderPane.setMargin(timer, new Insets(10, 0, 0 ,0)); // 10px padding from top of the top of the borderpane
+        BorderPane.setAlignment(timer, Pos.CENTER); // position the label to the middle of the top
+        BorderPane.setMargin(timer, new Insets(10, 0, 0 ,0)); // 10px padding from top
 
-        // new frame(the only actual way to update a view per second)
-        Timeline time = new Timeline();
-        KeyFrame frame = new KeyFrame(Duration.seconds(1), event -> {
+        Timeline time = new Timeline(); // new frame(the only actual way to update a view per second)
+        KeyFrame frame = new KeyFrame( Duration.seconds(1), e -> {
             seconds--; // the global seconds variable
             timer.setText(seconds.toString()); // update the timer label
             if (seconds <= 0){
-                disbtns(time, ans1, ans2, timer, pane); // regular disable routine
+                disbtns(time, ans , timer, pane); // regular disable routine
             }
         });
+
         // some timeline stuff
         time.setCycleCount(Timeline.INDEFINITE); //indefinite number of cycles
         time.getKeyFrames().add(frame); // add the frame to timer
         time.playFromStart(); // play timer from start every time
 
-        // set the question and answers based on passed pane number
-        switch (quenum){
-            case 1:
-                que.setText("question 1"); // the question
-                ans1.setText(Answers[0][0]); // first button
-                ans2.setText("lmao"); // second button
-                break;
 
-            case 2:
-                que.setText("question 2"); // the question
-                ans1.setText("yes1"); // first button
-                ans2.setText("yes1"); // second button
-                break;
-
-            case 3:
-                que.setText("question 3"); // the question
-                ans1.setText("no1"); // first button
-                ans2.setText("no1"); // second button
-                break;
+        for (JFXButton btn: ans) { // set the on click action on each button(here is a great example of why arrays are MVP)
+            btn.setOnAction(e -> {checkAnswer(btn, quenum);
+                disbtns(time, ans, timer, pane);
+            });
         }
 
-
-        // set the action on yes button click
-        ans1.setOnAction(e -> {
-            int current = Integer.parseInt(Score.getText()); // to get the current score
-            /* switch to the variable so
-            we can check its text with the answers
-            set for that question
-            (there is no point of scanning the whole array
-            since it also contains the non correct answers and
-            its time consuming */
-
-            switch (quenum){
-                case 1:
-                    if (ans1.getText().equals(Answers[0][0])){ // if the answer is correct
-                    Score.setText(String.valueOf(current + scores[1])); // set the score label text
-                    }
-                    break;
-
-                case 2:
-                    if (ans1.getText().equals(Answers[0][0])){ // if the answer is correct
-                    Score.setText(String.valueOf(current + scores[1])); // set the score label text
-                    }
-                    break;
-                case 3:
-                    if (ans1.getText().equals(Answers[0][0])){ // if the answer is correct
-                        Score.setText(String.valueOf(current + scores[1])); // set the score label text
-                    }
-                    break;
-            }
-
-            disbtns(time, ans1, ans2, timer, pane); // regular disable routine
-        });
-
-        ans2.setOnAction(e -> {
-            int current = Integer.parseInt(Score.getText()); // to get the current score
-            switch (quenum){
-                case 1:
-                    if (ans2.getText().equals(Answers[0][0])){ // if the answer is correct
-                        Score.setText(String.valueOf(current + scores[1])); // set the score label text
-                    }
-                    break;
-
-                case 2:
-                    if (ans2.getText().equals(Answers[0][0])){ // if the answer is correct
-                        Score.setText(String.valueOf(current + scores[1])); // set the score label text
-                    }
-                    break;
-
-                case 3:
-                    if (ans2.getText().equals(Answers[0][0])){ // if the answer is correct
-                        Score.setText(String.valueOf(current + scores[1])); // set the score label text
-                    }
-                    break;
-            }
-            disbtns(time, ans1, ans2, timer, pane); // regular disable routine
-        });
-        pane.setOnMouseClicked(null); // disable the passed pane (here is a little lesson in trickery)
+//        Popup pop = new Popup();
+//        pop.setX(1000);
+//        pop.setY(1000);
+//        pop.getContent().setAll(pane);
+//        pop.show(rootPane.getScene().getWindow());
     }
 
 
-    // moved to a different function because i have to do this multiple times (all these are passed by reference so any changes here are reflected)
-    private void disbtns(Timeline t, JFXButton a, JFXButton b, Label l, BorderPane pane){
+    // check if the text on a passed item is correct (this is gonna be hardwired to the right answer from Answers[][])
+    private void checkAnswer(JFXButton selected, int quenum){
+        int current = Integer.parseInt(Score.getText()); // to get the current score
+        switch (quenum){
+            case 1:
+                if (selected.getText().equals(Answers[0][0])){ // compare to the correct answer in array
+                        Score.setText(String.valueOf(current + scores[1])); // set the score label text
+                }
+                break;
+            case 2:
+                if (selected.getText().equals(Answers[0][0])){ // compare to the correct answer in array
+                    Score.setText(String.valueOf(current + scores[1])); // set the score label text
+                }
+                break;
+        }
+    }
+
+
+    // some cleanup routine
+    private void disbtns(Timeline t, JFXButton[] a, Label l, BorderPane pane){
         t.stop(); // stop the timer
-        a.setDisable(true); // disable the button
-        b.setDisable(true); // disable the button
+        for(JFXButton btn: a) { btn.setDisable(true); } // disable the buttons
         l.setVisible(false); // hide the timer label
         pane.setCenter(null); // hide the question
+        pane.setOnMouseClicked(null); // disable panel click action
         seconds = 10; // reset the interval for the question
     }
 
