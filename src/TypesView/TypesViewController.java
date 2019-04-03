@@ -50,54 +50,64 @@ public class TypesViewController implements Initializable {
 
     @FXML
     void selType(MouseEvent event) {
+        // check the source of the mouse click event and pass the category number and name accordingly
         if (event.getSource().equals(typeA)){
-            startQuiz("typeA");
+            startQuiz(1, "SCIENCE");
         }
-        if (event.getSource().equals(typeB)){
-            startQuiz("typeB");
+        else if (event.getSource().equals(typeB)){
+            startQuiz(2, "ENTERTAINMENT");
         }
-        if (event.getSource().equals(typeC)){
-            startQuiz("typeC");
+        else if (event.getSource().equals(typeC)){
+            startQuiz(3, "COUNTRIES");
         }
-        if (event.getSource().equals(typeD)){
-            startQuiz("typeD");
+        else if (event.getSource().equals(typeD)){
+            startQuiz(4, "SPORTS");
+        }
+        else if (event.getSource().equals(typeE)){
+            startQuiz(5, "HISTORY");
+        }
+        else if (event.getSource().equals(typeF)){
+            startQuiz(6, "RELIGION");
+        }
+        else if (event.getSource().equals(typeH)){
+            startQuiz(7, "RIDDLES");
+        }
+        else if (event.getSource().equals(typeI)){
+            startQuiz(8, "IIUM");
+
         }
     }
 
-    private void startQuiz(String Sauce) {
+    private void startQuiz(int num, String type) {
         Parent root;
         /*
         load a different view with different questions based on passed type
         this cant be one file because that way the controller could be over 1000s of lines (conditions and stuff)
         in this case its better to split it to multiple similar views
         */
-        if (Sauce.equals("typeA")) {
-            try {
-                // load the questions view
-                root = FXMLLoader.load(getClass().getResource("/QuesView/QuesView.fxml"));
+        String view = ""; // hold the requested view string
+        switch (num){ // check the passed number and set view accordingly
+            case 1: view = "/QuesView/QuesView.fxml"; break;
+            case 2: view = "/QuesView/QuesView.fxml"; break;
+            case 3: view = "/QuesView/QuesView.fxml"; break;
+            case 4: view = "/QuesView/QuesView.fxml"; break;
+            case 5: view = "/QuesView/QuesView.fxml"; break;
+            case 6: view = "/QuesView/QuesView.fxml"; break;
+            case 7: view = "/QuesView/QuesView.fxml"; break;
+            case 8: view = "/QuesView/QuesView.fxml"; break;
+        }
+
+        // load the set view
+        try {
+                root = FXMLLoader.load(getClass().getResource(view));
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
-                stage.setTitle(Sauce); // set window name as the passed type
-                stage.setScene(scene);
-                rootPane.getScene().getWindow().hide();
-                stage.show();
-            } catch (IOException e) {
+                stage.setTitle(type); // set window name as the passed type
+                stage.setScene(scene); // set the stage scene
+                rootPane.getScene().getWindow().hide(); // hide the types view
+                stage.show(); // show the new stage
+            } catch (IOException e) { // gotta catch 'em all
                 e.printStackTrace();
             }
         }
-        else if (Sauce.equals("TypeB")){
-            try {
-                // load the questions view
-                root = FXMLLoader.load(getClass().getResource("/QuesView/QuesView.fxml"));
-                Scene scene = new Scene(root);
-                Stage stage = new Stage();
-                stage.setTitle(Sauce); // set window name as the passed type
-                stage.setScene(scene);
-                rootPane.getScene().getWindow().hide();
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
 }
