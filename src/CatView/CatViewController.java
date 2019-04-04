@@ -1,4 +1,4 @@
-package TypesView;
+package CatView;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class TypesViewController implements Initializable {
+public class CatViewController implements Initializable {
 
     @FXML
     private GridPane rootPane; // the root pane
@@ -79,35 +79,32 @@ public class TypesViewController implements Initializable {
     }
 
     private void startQuiz(int num, String type) {
-        Parent root;
         /*
-        load a different view with different questions based on passed type
+        load a different view with different questions based on passed view number
         this cant be one file because that way the controller could be over 1000s of lines (conditions and stuff)
         in this case its better to split it to multiple similar views
         */
-        String view = ""; // hold the requested view string
+        String view = null; // hold the requested view string
         switch (num){ // check the passed number and set view accordingly
-            case 1: view = "/QuesViews/QuesView.fxml"; break;
-            case 2: view = "/QuesViews/QuesView.fxml"; break;
-            case 3: view = "/QuesViews/QuesView.fxml"; break;
-            case 4: view = "/QuesViews/QuesView.fxml"; break;
-            case 5: view = "/QuesViews/QuesView.fxml"; break;
-            case 6: view = "/QuesViews/QuesView.fxml"; break;
-            case 7: view = "/QuesViews/QuesView.fxml"; break;
-            case 8: view = "/QuesViews/QuesView.fxml"; break;
+            case 1: view = "/QuesViews/Science/ScienceView.fxml"; break;
+            case 2: view = "/QuesViews/Entertainment/EntView.fxml"; break;
+            case 3: view = "/QuesViews/Countries/CountriesView.fxml"; break;
+            case 4: view = "/QuesViews/Sports/SportsView.fxml"; break;
+            case 5: view = "/QuesViews/History/HistoryView.fxml"; break;
+            case 6: view = "/QuesViews/Religion/ReligionView.fxml"; break;
+            case 7: view = "/QuesViews/Riddles/RiddlesView.fxml"; break;
+            case 8: view = "/QuesViews/IIUM/IIUMView.fxml"; break;
         }
 
         // load the set view
         try {
-                root = FXMLLoader.load(getClass().getResource(view));
-                Scene scene = new Scene(root);
-                Stage stage = new Stage();
-                stage.setTitle(type); // set window name as the passed type
-                stage.setScene(scene); // set the stage scene
-                rootPane.getScene().getWindow().hide(); // hide the types view
-                stage.show(); // show the new stage
-            } catch (IOException e) { // gotta catch 'em all
-                e.printStackTrace();
-            }
+            Parent root = FXMLLoader.load(getClass().getResource(view));
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+            stage.setTitle(type); // set window name as the passed type
+            stage.setScene(scene); // set the stage scene
+            rootPane.getScene().getWindow().hide(); // hide the types view
+            stage.show(); // show the new stage
+            } catch (IOException e) { e.printStackTrace(); } // gotta catch 'em all
         }
 }
