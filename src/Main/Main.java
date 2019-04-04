@@ -19,7 +19,7 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         // to fix loading from the jar set the fxml directory as "/Splash/Splash.fxml" dunno why this is not the default behavior
         Parent root = FXMLLoader.load(getClass().getResource("/Splash/Splash.fxml"));
-        primaryStage.getIcons().add(new Image("/resources/logo.png")); // set window icon
+        primaryStage.getIcons().add(new Image("/resources/spordemic.png")); // set window icon
         primaryStage.setTitle("Sport Academics");
         primaryStage.setScene(new Scene(root, 600, 349));
         primaryStage.initStyle(StageStyle.UNDECORATED);
