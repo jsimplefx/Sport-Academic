@@ -26,17 +26,17 @@ public class SplashController implements Initializable {
         @Override
         public void run() {
             try {
-                Thread.sleep(5000); // sleep 5 seconds
+                Thread.sleep(5000); // sleep 5 seconds (the amount of time this view (the splash) will be showed for)
                 Platform.runLater(new Runnable() { // surpassing the javafx one thread thingy
                     @Override
                     public void run() {
                         Parent root; // new root
                         try {
-                            root = FXMLLoader.load(getClass().getResource("/TypesView/TypesView.fxml")); // load new view
+                            root = FXMLLoader.load(getClass().getResource("/CatView/CatView.fxml")); // load new view
                             Scene scene = new Scene(root); // new scene
                             Stage stage = new Stage(); // new stage
                             stage.setScene(scene); // set stage scene
-                            stage.setTitle("Sport Academics");
+                            stage.setTitle("Select Category");
                             stage.show(); // show the new stage
                             rootPane.getScene().getWindow().hide(); // hide the splash pane(stage)
                         } catch (IOException e) {
@@ -44,9 +44,7 @@ public class SplashController implements Initializable {
                         }
                     }
                 });
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            } catch (InterruptedException e) { e.printStackTrace(); }
         }
     }
 }
