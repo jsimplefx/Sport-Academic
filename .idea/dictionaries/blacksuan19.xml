@@ -7,8 +7,15 @@
       <w>gridpane</w>
       <w>hbox</w>
       <w>iium</w>
+      <w>multiconductor</w>
+      <w>oplabels</w>
       <w>qtime</w>
       <w>quenum</w>
+      <w>sirena</w>
+      <w>spordemic</w>
+      <w>thhn</w>
+      <w>thwn</w>
+      <w>vbox</w>
     </words>
   </dictionary>
 </component>
