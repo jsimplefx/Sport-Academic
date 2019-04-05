@@ -3,6 +3,7 @@ package CatView;
 import QuesViews.Countries.CountriesViewController;
 import QuesViews.Entertainment.EntViewController;
 import QuesViews.History.HistoryViewController;
+import QuesViews.IIUM.IIUMViewController;
 import QuesViews.Religion.ReligionViewController;
 import QuesViews.Science.ScienceViewController;
 import QuesViews.Sports.SportsViewController;
@@ -121,17 +122,20 @@ public class CatViewController implements Initializable {
                 view = "/QuesViews/History/HistoryView.fxml";
                 HistoryViewController.setCurrent(score);
                 break;
-            case 6: view = "/QuesViews/Religion/ReligionView.fxml";
-                    ReligionViewController.setCurrent(score);
-                    break;
+            case 6:
+                view = "/QuesViews/Religion/ReligionView.fxml";
+                ReligionViewController.setCurrent(score);
+                break;
             case 7: view = "/QuesViews/Riddles/RiddlesView.fxml"; break;
-            case 8: view = "/QuesViews/IIUM/IIUMView.fxml"; break;
+            case 8:
+                view = "/QuesViews/IIUM/IIUMView.fxml";
+                IIUMViewController.setCurrent(score);
+                break;
         }
 
         // load the set view
         try {
             Parent root = FXMLLoader.load(getClass().getResource(view));
-            System.out.println(score);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setTitle(type); // set window name as the passed type
