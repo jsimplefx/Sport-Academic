@@ -379,7 +379,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554491344162" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554496264060" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Random/Java/animatefx-demo" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -389,22 +389,22 @@
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Main" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/QuesViews/Sports" />
-      <recent name="$PROJECT_DIR$/src/QuesViews/Science" />
-      <recent name="$PROJECT_DIR$/src/QuesViews/Riddles" />
-      <recent name="$PROJECT_DIR$/src/QuesViews/Religion" />
-      <recent name="$PROJECT_DIR$/src/QuesViews/IIUM" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/CatView/Session1" />
       <recent name="$PROJECT_DIR$/src/BigQue" />
       <recent name="$PROJECT_DIR$/src/META-INF" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/StyleCheet" />
-      <recent name="$PROJECT_DIR$/src/Splash" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/CatView/Session2" />
+      <recent name="$PROJECT_DIR$/src/SessionView" />
+      <recent name="$PROJECT_DIR$/src/QuesViews/Sports" />
+      <recent name="$PROJECT_DIR$/src/QuesViews/Science" />
+      <recent name="$PROJECT_DIR$/src/QuesViews/Riddles" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Main" />
     </key>
   </component>
   <component name="RunDashboard">

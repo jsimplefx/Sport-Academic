@@ -1,11 +1,8 @@
-package CatView;
+package CatView.Session2;
 
-import QuesViews.Countries.CountriesViewController;
-import QuesViews.Entertainment.EntViewController;
 import QuesViews.History.HistoryViewController;
 import QuesViews.IIUM.IIUMViewController;
 import QuesViews.Religion.ReligionViewController;
-import QuesViews.Science.ScienceViewController;
 import QuesViews.Sports.SportsViewController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,16 +18,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CatViewController implements Initializable {
+public class Session2ViewController implements Initializable {
 
     @FXML
-    private GridPane rootPane; // the root pane
-
-    @FXML
-    private BorderPane typeA;
-
-    @FXML
-    private BorderPane typeB;
+    private GridPane rootPane;
 
     @FXML
     private BorderPane typeE;
@@ -39,16 +30,10 @@ public class CatViewController implements Initializable {
     private BorderPane typeF;
 
     @FXML
-    private BorderPane typeC;
-
-    @FXML
-    private BorderPane typeD;
+    private BorderPane typeG;
 
     @FXML
     private BorderPane typeH;
-
-    @FXML
-    private BorderPane typeI;
 
     private static int score = 0;
     @Override
@@ -61,40 +46,28 @@ public class CatViewController implements Initializable {
     }
 
     public static void setScore(int score) {
-        CatViewController.score = score;
+        Session2ViewController.score = score;
     }
 
     @FXML
     void selType(MouseEvent event) {
         // check the source of the mouse click event and pass the category number and name accordingly
-        if (event.getSource().equals(typeA)){
-            startQuiz(1, "SCIENCE");
-        }
-        else if (event.getSource().equals(typeB)){
-            startQuiz(2, "ENTERTAINMENT");
-        }
-        else if (event.getSource().equals(typeC)){
-            startQuiz(3, "COUNTRIES");
-        }
-        else if (event.getSource().equals(typeD)){
-            startQuiz(4, "SPORTS");
+        if (event.getSource().equals(typeG)){
+            startQuiz(1);
         }
         else if (event.getSource().equals(typeE)){
-            startQuiz(5, "HISTORY");
+            startQuiz(2);
         }
         else if (event.getSource().equals(typeF)){
-            startQuiz(6, "RELIGION");
+            startQuiz(3);
         }
         else if (event.getSource().equals(typeH)){
-            startQuiz(7, "RIDDLES");
-        }
-        else if (event.getSource().equals(typeI)){
-            startQuiz(8, "IIUM");
+            startQuiz(4);
 
         }
     }
 
-    private void startQuiz(int num, String type) {
+    private void startQuiz(int num) {
         /*
         load a different view with different questions based on passed view number
         this cant be one file because that way the controller could be over 1000s of lines (conditions and stuff)
@@ -103,31 +76,18 @@ public class CatViewController implements Initializable {
         String view = null; // hold the requested view string
         switch (num){ // check the passed number and set view accordingly
             case 1:
-                view = "/QuesViews/Science/ScienceView.fxml";
-                ScienceViewController.setCurrent(score);
-                break;
-            case 2:
-                view = "/QuesViews/Entertainment/EntView.fxml";
-                EntViewController.setCurrent(score);
-                break;
-            case 3:
-                view = "/QuesViews/Countries/CountriesView.fxml";
-                CountriesViewController.setCurrent(score);
-                break;
-            case 4:
                 view = "/QuesViews/Sports/SportsView.fxml";
                 SportsViewController.setCurrent(score);
                 break;
-            case 5:
+            case 2:
                 view = "/QuesViews/History/HistoryView.fxml";
                 HistoryViewController.setCurrent(score);
                 break;
-            case 6:
+            case 3:
                 view = "/QuesViews/Religion/ReligionView.fxml";
                 ReligionViewController.setCurrent(score);
                 break;
-            case 7: view = "/QuesViews/Riddles/RiddlesView.fxml"; break;
-            case 8:
+            case 4:
                 view = "/QuesViews/IIUM/IIUMView.fxml";
                 IIUMViewController.setCurrent(score);
                 break;
@@ -138,7 +98,7 @@ public class CatViewController implements Initializable {
             Parent root = FXMLLoader.load(getClass().getResource(view));
             Scene scene = new Scene(root);
             Stage stage = new Stage();
-            stage.setTitle(type); // set window name as the passed type
+            stage.setTitle("Select Category"); // set window name as the passed type
             stage.setScene(scene); // set the stage scene
             rootPane.getScene().getWindow().hide(); // hide the types view
             stage.show(); // show the new stage

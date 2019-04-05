@@ -1,6 +1,6 @@
 package QuesViews.Religion;
 
-import CatView.CatViewController;
+import CatView.Session2.Session2ViewController;
 import animatefx.animation.ZoomIn;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
@@ -161,7 +161,7 @@ public class ReligionViewController implements Initializable {
     private void initPane(int quenum, BorderPane paneParent) {
         BorderPane pane = new BorderPane(); // create a new pane instead of directly modifying the main pane
         pane.setPrefSize(500, 500); // set preferred pane size
-        pane.setStyle("-fx-background-color: #eb4d4b;"); // set pane background color
+        pane.setStyle("-fx-background-color: #eb4d4b; -fx-border-color: #d1d8e0; -fx-border-width: 3; "); // set pane styling
         pane.setPadding(new Insets(10)); // set padding for all sides
         paneParent.getChildren().removeAll(); // remove the main pane children
         paneParent.setCenter(pane); // set new pane as center
@@ -506,7 +506,7 @@ public class ReligionViewController implements Initializable {
     @FXML
     void backToTypes() {
         // first confirm the action then proceed
-        CatViewController.setScore(Integer.valueOf(Score.getText())); // save the current score in category controller
+        Session2ViewController.setScore(Integer.valueOf(Score.getText())); // save the current score in category controller
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Go back");
         alert.setHeaderText("Are you sure You want to go back?");
@@ -518,7 +518,7 @@ public class ReligionViewController implements Initializable {
         if (result.isPresent() && result.get() == Yes) { // make sure the button exists first before adding it(intellij 101)
             Parent root;
             try {
-                root = FXMLLoader.load(getClass().getResource("/CatView/CatView.fxml"));
+                root = FXMLLoader.load(getClass().getResource("/CatView/Session2/Session2View.fxml"));
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
                 stage.setTitle("Sport Academics");
