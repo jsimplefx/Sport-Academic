@@ -170,7 +170,7 @@ public class ScienceViewController implements Initializable {
 
     private void initPane(int quenum, BorderPane paneParent){
         BorderPane pane = new BorderPane(); // create a new pane instead of directly modifying the main pane
-        pane.setMinSize(600, 600);  // set min size for the pane so it wont be small on the popup
+        pane.setPrefSize(500, 500); // set preferred pane size
         pane.setStyle("-fx-background-color: #eb4d4b"); // set pane background color
         pane.setPadding(new Insets(10)); // set padding for all sides
         paneParent.getChildren().removeAll(); // remove the main pane children
