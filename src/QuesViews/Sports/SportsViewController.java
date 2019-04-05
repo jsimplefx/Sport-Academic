@@ -250,7 +250,8 @@ public class SportsViewController implements Initializable {
             ans[i] = new JFXButton(); // init the buttons
             ans[i].setTextFill(Color.WHITE); // set button text color
             ans[i].setWrapText(true); // wrap the text around
-            ans[i].setTextAlignment(TextAlignment.LEFT);
+            ans[i].setTextAlignment(TextAlignment.LEFT); // align button text to the left
+            ans[i].setFocusTraversable(false); // hide the initial focus on the first button
         }
 
         switch (quenum){
