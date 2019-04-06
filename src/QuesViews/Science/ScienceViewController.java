@@ -31,11 +31,13 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ScienceViewController implements Initializable {
 
     private static int current; // current score
     private final Integer Qtime = 10; // total time to give for each question
+    private int points = 10; // points per question
     @FXML
     private BorderPane rootPane; // the main border pane
     @FXML
@@ -143,7 +145,7 @@ public class ScienceViewController implements Initializable {
 
     private void initPane(int quenum, BorderPane paneParent) {
         BorderPane pane = new BorderPane(); // create a new pane instead of directly modifying the main pane
-        pane.setPrefSize(600, 600); // set preferred pane size
+        pane.setPrefSize(500, 500); // set preferred pane size
         pane.setStyle("-fx-background-color: #eb4d4b; -fx-border-color: #d1d8e0; -fx-border-width: 3; "); // set pane styling
         pane.setPadding(new Insets(10)); // set padding for all sides
         paneParent.getChildren().removeAll(); // remove the main pane children
@@ -180,7 +182,22 @@ public class ScienceViewController implements Initializable {
 
         HBox contain = new HBox(); // new hbox to make it look like real life MCQ options
         contain.getChildren().addAll(LabelContainer, optionsContainer);
-        pane.setBottom(contain); // put the hbox at the bottom of the Border pane
+
+        AtomicBoolean isAud = new AtomicBoolean(); // for tracking the button value
+        JFXButton aud = new JFXButton("Asked Audience?"); // button to check if the user asked the audience
+        aud.setTextFill(Color.WHITE); // set the button text color
+        aud.setOnAction(e -> {
+            points = 5; // change the points to 5 when the user asks audience
+            isAud.set(true); // set to true
+        });
+        aud.setFocusTraversable(false); // that weird focus thing
+        HBox AudContainer = new HBox(); // container for the audience button so we can align it to the center
+        AudContainer.getChildren().setAll(aud); // add the button to the container children
+        AudContainer.setAlignment(Pos.CENTER); // elements alignments
+        VBox AllContainer = new VBox(); // container for everything (the answer options, labels and the audience button)
+        AllContainer.setSpacing(40); // spacing for inner items
+        AllContainer.getChildren().setAll(AudContainer, contain); // set elements as audience container and the options container
+        pane.setBottom(AllContainer); // put the hbox at the bottom of the Border pane
 
         Label timer = new Label(); // timer label
         timer.setTextFill(Color.WHITE); // color
@@ -205,6 +222,9 @@ public class ScienceViewController implements Initializable {
 
         for (JFXButton btn : ans) { // set the on click action on each button(here is a great example of why arrays are MVP)
             btn.setOnAction(e -> {
+                if(!isAud.get()){ // check if its not true ( means the Audience button has not been pressed)
+                    points = 10; // set points to 10 (just to make sure after the first question)
+                }
                 checkAnswer(btn, quenum);
                 disbtns(time, ans, timer, pane);
                 pop.hide();
@@ -363,7 +383,6 @@ public class ScienceViewController implements Initializable {
     // check if the text on a passed item is correct (this is gonna be hardwired to the right answer from Options[][]).
     private void checkAnswer(JFXButton selected, int quenum) {
         int current = Integer.parseInt(Score.getText()); // to get the current score
-        int points = 10;
         switch (quenum) {
             case 0:
                 if (selected.getText().equals(Options[0][0])) Score.setText(String.valueOf(current + points));
