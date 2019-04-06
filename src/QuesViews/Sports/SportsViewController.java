@@ -565,6 +565,8 @@ public class SportsViewController implements Initializable {
                 stage.setTitle("Sport Academics");
                 stage.getIcons().add(new Image("/resources/spordemic.png")); // set window icon
                 stage.setScene(scene);
+                stage.setFullScreen(true); // go full screen
+                stage.setFullScreenExitHint(""); // hide the annoying press esc to exit full screen message
                 stage.show();
                 rootPane.getScene().getWindow().hide(); // hide the questions view after reloading types
             } catch (IOException e) {

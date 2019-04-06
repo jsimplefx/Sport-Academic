@@ -36,7 +36,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class EntViewController implements Initializable {
 
     private static int current;
-    private final Integer Qtime = 10; // total time to give for each question
+    private final Integer Qtime = 30; // total time to give for each question
     private int points = 10; // points per question
     @FXML
     private BorderPane rootPane; // the main border pane
@@ -378,7 +378,7 @@ public class EntViewController implements Initializable {
         l.setVisible(false); // hide the timer label
         pane.setCenter(null); // hide the question
         pane.setOnMouseClicked(null); // disable panel click action
-        seconds = 10; // reset the interval for the question
+        seconds = 30; // reset the interval for the question
     }
 
 
@@ -561,6 +561,8 @@ public class EntViewController implements Initializable {
                 Stage stage = new Stage();
                 stage.getIcons().add(new Image("/resources/spordemic.png")); // set window icon
                 stage.setTitle("Sport Academics");
+                stage.setFullScreen(true); // go full screen
+                stage.setFullScreenExitHint(""); // hide the annoying press esc to exit full screen message
                 stage.setScene(scene);
                 stage.show();
                 rootPane.getScene().getWindow().hide(); // hide the questions view after reloading types

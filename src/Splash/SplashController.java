@@ -38,6 +38,7 @@ public class SplashController implements Initializable {
                             Scene scene = new Scene(root); // new scene
                             Stage stage = new Stage(); // new stage
                             stage.getIcons().add(new Image("/resources/spordemic.png")); // set window icon
+                            stage.setFullScreen(true); // go full screen
                             stage.setScene(scene); // set stage scene
                             stage.setTitle("Select Category");
                             stage.show(); // show the new stage

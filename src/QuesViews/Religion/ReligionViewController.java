@@ -563,6 +563,8 @@ public class ReligionViewController implements Initializable {
                 Stage stage = new Stage();
                 stage.getIcons().add(new Image("/resources/spordemic.png")); // set window icon
                 stage.setTitle("Sport Academics");
+                stage.setFullScreen(true); // go full screen
+                stage.setFullScreenExitHint(""); // hide the annoying press esc to exit full screen message
                 stage.setScene(scene);
                 stage.show();
                 rootPane.getScene().getWindow().hide(); // hide the questions view after reloading types

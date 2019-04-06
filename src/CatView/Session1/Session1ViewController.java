@@ -86,6 +86,8 @@ public class Session1ViewController {
             stage.setTitle(type); // set window name as the passed type
             stage.setScene(scene); // set the stage scene
             stage.getIcons().add(new Image("/resources/spordemic.png")); // set window icon
+            stage.setFullScreen(true); // go full screen
+            stage.setFullScreenExitHint(""); // hide the annoying press esc to exit full screen message
             rootPane.getScene().getWindow().hide(); // hide the types view
             stage.show(); // show the new stage
         } catch (IOException e) {
