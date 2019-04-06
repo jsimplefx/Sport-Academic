@@ -74,7 +74,6 @@ public class RiddlesViewController implements Initializable {
     private BorderPane que16;
     @FXML
     private Label Score; // label for tracking the score
-    private String[][] Options = new String[16][4]; // the answer options
     private String[] Ques = new String[16]; // the questions themselves
     private Integer seconds = Qtime; // need this cuz you cant modify a final variable
 
@@ -156,7 +155,7 @@ public class RiddlesViewController implements Initializable {
         pane.setCenter(que); // set the center of the specific pane as the question
         Popup pop = new Popup(); // create popup
 
-        JFXButton[] ans = new JFXButton[4]; // create option buttons
+        JFXButton[] ans = new JFXButton[2]; // create option buttons
         setBtns(ans, quenum, que); // set the question and answers based on passed pane number
         VBox optionsContainer = new VBox(); //new Vbox
         optionsContainer.setAlignment(Pos.CENTER_LEFT); // set the alignment of the items inside
@@ -170,15 +169,7 @@ public class RiddlesViewController implements Initializable {
         A.setTextFill(Color.WHITE);
         Label B = new Label("B. ");
         B.setTextFill(Color.WHITE);
-        Label C = new Label("C. ");
-        C.setTextFill(Color.WHITE);
-        if (Options[quenum][2].equals(""))
-            C.setText(""); // set text to an empty string if the question has only 3 answer options
-        Label D = new Label("D. ");
-        D.setTextFill(Color.WHITE);
-        if (Options[quenum][3].equals(""))
-            D.setText(""); // set text to an empty string if the question has only 3 answer options
-        LabelContainer.getChildren().addAll(A, B, C, D);
+        LabelContainer.getChildren().addAll(A, B);
 
         HBox contain = new HBox(); // new hbox to make it look like real life MCQ options
         contain.getChildren().addAll(LabelContainer, optionsContainer);
@@ -223,10 +214,10 @@ public class RiddlesViewController implements Initializable {
 
         for (JFXButton btn : ans) { // set the on click action on each button(here is a great example of why arrays are MVP)
             btn.setOnAction(e -> {
-                if(!isAud.get()){ // check if its not true ( means the Audience button has not been pressed)
+                if (!isAud.get()) { // check if its not true ( means the Audience button has not been pressed)
                     points = 10; // set points to 10 (just to make sure after the first question)
                 }
-                checkAnswer(btn, quenum);
+                checkAnswer(btn);
                 disbtns(time, ans, timer, pane);
                 pop.hide();
             });
@@ -254,117 +245,56 @@ public class RiddlesViewController implements Initializable {
 
         switch (quenum) {
             case 0:
-                que.setText(Ques[0]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[0][j]);
-                }
+                que.setText(Ques[0]);
                 break;
-
             case 1:
-                que.setText(Ques[1]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[1][j]);
-                }
+                que.setText(Ques[1]);
                 break;
-
             case 2:
-                que.setText(Ques[2]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[2][j]);
-                }
+                que.setText(Ques[2]);
                 break;
-
             case 3:
-                que.setText(Ques[3]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[3][j]);
-                }
+                que.setText(Ques[3]);
                 break;
-
             case 4:
-                que.setText(Ques[4]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[4][j]);
-                }
+                que.setText(Ques[4]);
                 break;
-
             case 5:
-                que.setText(Ques[5]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[5][j]);
-                }
+                que.setText(Ques[5]);
                 break;
-
             case 6:
-                que.setText(Ques[6]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[6][j]);
-                }
+                que.setText(Ques[6]);
                 break;
-
             case 7:
-                que.setText(Ques[7]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[7][j]);
-                }
+                que.setText(Ques[7]);
                 break;
-
             case 8:
-                que.setText(Ques[8]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[8][j]);
-                }
+                que.setText(Ques[8]);
                 break;
-
             case 9:
-                que.setText(Ques[9]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[9][j]);
-                }
+                que.setText(Ques[9]);
                 break;
-
             case 10:
-                que.setText(Ques[10]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[10][j]);
-                }
+                que.setText(Ques[10]);
                 break;
-
             case 11:
-                que.setText(Ques[11]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[11][j]);
-                }
+                que.setText(Ques[11]);
                 break;
-
             case 12:
-                que.setText(Ques[12]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[12][j]);
-                }
+                que.setText(Ques[12]);
                 break;
-
             case 13:
-                que.setText(Ques[13]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[13][j]);
-                }
+                que.setText(Ques[13]);
                 break;
-
             case 14:
-                que.setText(Ques[14]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[14][j]);
-                }
+                que.setText(Ques[14]);
                 break;
-
-            case 15:
-                que.setText(Ques[15]); // the question
-                for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(Options[15][j]);
-                }
+            case 16:
+                que.setText(Ques[15]);
                 break;
         }
+        ans[0].setText("Correct");
+        ans[1].setText("Not Correct");
 
     }
 
@@ -383,159 +313,31 @@ public class RiddlesViewController implements Initializable {
 
 
     // check if the text on a passed item is correct (this is gonna be hardwired to the right answer from Options[][]).
-    private void checkAnswer(JFXButton selected, int quenum) {
+    private void checkAnswer(JFXButton selected) {
         int current = Integer.parseInt(Score.getText()); // to get the current score
-        switch (quenum) {
-            case 0:
-                if (selected.getText().equals(Options[0][0])) Score.setText(String.valueOf(current + points));
-                break;
-            case 1:
-                if (selected.getText().equals(Options[1][1])) Score.setText(String.valueOf(current + points));
-                break;
-            case 2:
-                if (selected.getText().equals(Options[2][2])) Score.setText(String.valueOf(current + points));
-                break;
-            case 3:
-                if (selected.getText().equals(Options[3][0])) Score.setText(String.valueOf(current + points));
-                break;
-            case 4:
-                if (selected.getText().equals(Options[4][3])) Score.setText(String.valueOf(current + points));
-                break;
-            case 5:
-                if (selected.getText().equals(Options[5][1])) Score.setText(String.valueOf(current + points));
-                break;
-            case 6:
-                if (selected.getText().equals(Options[6][3])) Score.setText(String.valueOf(current + points));
-                break;
-            case 7:
-                if (selected.getText().equals(Options[7][1])) Score.setText(String.valueOf(current + points));
-                break;
-            case 8:
-                if (selected.getText().equals(Options[8][3])) Score.setText(String.valueOf(current + points));
-                break;
-            case 9:
-                if (selected.getText().equals(Options[9][3])) Score.setText(String.valueOf(current + points));
-                break;
-            case 10:
-                if (selected.getText().equals(Options[10][1])) Score.setText(String.valueOf(current + points));
-                break;
-            case 11:
-                if (selected.getText().equals(Options[11][3])) Score.setText(String.valueOf(current + points));
-                break;
-            case 12:
-                if (selected.getText().equals(Options[12][2])) Score.setText(String.valueOf(current + points));
-                break;
-            case 13:
-                if (selected.getText().equals(Options[13][2])) Score.setText(String.valueOf(current + points));
-                break;
-            case 14:
-                if (selected.getText().equals(Options[14][3])) Score.setText(String.valueOf(current + points));
-                break;
-            case 15:
-                if (selected.getText().equals(Options[15][2])) Score.setText(String.valueOf(current + points));
-                break;
-        }
+        if (selected.getText().equals("Correct")) Score.setText(String.valueOf(current + points));
     }
 
 
     // set the answer options and question on their arrays
     private void initStuff() {
-        Ques[0] = "";
-        Options[0][0] = ""; // correct
-        Options[0][1] = "";
-        Options[0][2] = "";
-        Options[0][3] = "";
-
-        Ques[1] = "";
-        Options[1][0] = "";
-        Options[1][1] = ""; // correct
-        Options[1][2] = "";
-        Options[1][3] = "";
-
-        Ques[2] = "";
-        Options[2][0] = "";
-        Options[2][1] = "";
-        Options[2][2] = ""; // correct
-        Options[2][3] = "";
-
-        Ques[3] = "";
-        Options[3][0] = ""; // correct
-        Options[3][1] = "";
-        Options[3][2] = "";
-        Options[3][3] = "";
-
-        Ques[4] = "";
-        Options[4][0] = "";
-        Options[4][1] = "";
-        Options[4][2] = "";
-        Options[4][3] = ""; // correct
-
-        Ques[5] = "";
-        Options[5][0] = "";
-        Options[5][1] = ""; // correct
-        Options[5][2] = "";
-        Options[5][3] = "";
-
-        Ques[6] = "";
-        Options[6][0] = "";
-        Options[6][1] = "";
-        Options[6][2] = "";
-        Options[6][3] = ""; // correct
-
-        Ques[7] = "";
-        Options[7][0] = "";
-        Options[7][1] = ""; // correct
-        Options[7][2] = "";
-        Options[7][3] = "";
-
-        Ques[8] = "";
-        Options[8][0] = "";
-        Options[8][1] = "";
-        Options[8][2] = "";
-        Options[8][3] = ""; // correct
-
-        Ques[9] = "";
-        Options[9][0] = "";
-        Options[9][1] = "";
-        Options[9][2] = "";
-        Options[9][3] = ""; // correct
-
-        Ques[10] = "";
-        Options[10][0] = "";
-        Options[10][1] = ""; // correct
-        Options[10][2] = "";
-        Options[10][3] = "";
-
-        Ques[11] = "";
-        Options[11][0] = "";
-        Options[11][1] = "";
-        Options[11][2] = "";
-        Options[11][3] = ""; // correct
-
-        Ques[12] = "";
-        Options[12][0] = "";
-        Options[12][1] = "";
-        Options[12][2] = ""; // correct
-        Options[12][3] = "";
-
-        Ques[13] = "";
-        Options[13][0] = "";
-        Options[13][1] = "";
-        Options[13][2] = ""; //correct
-        Options[13][3] = "";
-
-        Ques[14] = "";
-        Options[14][0] = "";
-        Options[14][1] = "";
-        Options[14][2] = "";
-        Options[14][3] = ""; // correct
-
-        Ques[15] = "";
-        Options[15][0] = "";
-        Options[15][1] = "";
-        Options[15][2] = ""; // correct
-        Options[15][3] = "";
-
+        Ques[0] = "What tastes better than it smells?";
+        Ques[1] = "What kind of room has no doors or windows?";
+        Ques[2] = "During what month do people sleep the least?";
+        Ques[3] = "There is an ancient invention still used around the world today that allows people to see through walls. What is it?";
+        Ques[4] = "I am in everything and in nothing, what am I?";
+        Ques[5] = "When it is alive we sing, when it is dead we clap our hands. What is it?";
+        Ques[6] = "What goes through towns and over hills, but never moves?";
+        Ques[7] = "A horse jumps over a castle and lands on a man, then the man disappears. How was this possible?";
+        Ques[8] = "You see us everyday, but you never see us together. " +
+                "We appear everywhere but never are we together at the same place. Who are we?";
+        Ques[9] = "What goes up and never comes down?";
+        Ques[10] = "What starts with the letter \"t\", is filled with \"t\" and ends in \"t\"?";
+        Ques[11] = "Cut my skin out. I'm not going to cry, but you will! What am I?";
+        Ques[12] = "How do you make the number ONE disappear?";
+        Ques[13] = "I have 6 faces and 21 eyes, but can't see a thing. What am I?";
+        Ques[14] = "If you have me, you want to share me. If you share me, you haven't got me. What am I?";
+        Ques[15] = "what comes in hard comes out soft and you can blow?";
     }
 
 
