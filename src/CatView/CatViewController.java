@@ -87,14 +87,14 @@ public class TypesViewController implements Initializable {
         */
         String view = ""; // hold the requested view string
         switch (num){ // check the passed number and set view accordingly
-            case 1: view = "/QuesView/QuesView.fxml"; break;
-            case 2: view = "/QuesView/QuesView.fxml"; break;
-            case 3: view = "/QuesView/QuesView.fxml"; break;
-            case 4: view = "/QuesView/QuesView.fxml"; break;
-            case 5: view = "/QuesView/QuesView.fxml"; break;
-            case 6: view = "/QuesView/QuesView.fxml"; break;
-            case 7: view = "/QuesView/QuesView.fxml"; break;
-            case 8: view = "/QuesView/QuesView.fxml"; break;
+            case 1: view = "/QuesViews/QuesView.fxml"; break;
+            case 2: view = "/QuesViews/QuesView.fxml"; break;
+            case 3: view = "/QuesViews/QuesView.fxml"; break;
+            case 4: view = "/QuesViews/QuesView.fxml"; break;
+            case 5: view = "/QuesViews/QuesView.fxml"; break;
+            case 6: view = "/QuesViews/QuesView.fxml"; break;
+            case 7: view = "/QuesViews/QuesView.fxml"; break;
+            case 8: view = "/QuesViews/QuesView.fxml"; break;
         }
 
         // load the set view
