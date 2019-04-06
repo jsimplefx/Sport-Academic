@@ -6,40 +6,29 @@ import QuesViews.Riddles.RiddlesViewController;
 import QuesViews.Science.ScienceViewController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class Session1ViewController implements Initializable {
-
-    @FXML
-    private GridPane rootPane; // the root pane
-
-    @FXML
-    private BorderPane typeA;
-
-    @FXML
-    private BorderPane typeB;
-
-    @FXML
-    private BorderPane typeC;
-
-    @FXML
-    private BorderPane typeD;
+public class Session1ViewController {
 
     private static int score = 0;
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
+    @FXML
+    private GridPane rootPane; // the root pane
+    @FXML
+    private BorderPane typeA;
+    @FXML
+    private BorderPane typeB;
+    @FXML
+    private BorderPane typeC;
+    @FXML
+    private BorderPane typeD;
 
     public int getScore() {
         return score;
@@ -52,16 +41,13 @@ public class Session1ViewController implements Initializable {
     @FXML
     void selType(MouseEvent event) {
         // check the source of the mouse click event and pass the category number and name accordingly
-        if (event.getSource().equals(typeA)){
+        if (event.getSource().equals(typeA)) {
             startQuiz(1, "SCIENCE");
-        }
-        else if (event.getSource().equals(typeB)){
+        } else if (event.getSource().equals(typeB)) {
             startQuiz(2, "ENTERTAINMENT");
-        }
-        else if (event.getSource().equals(typeC)){
+        } else if (event.getSource().equals(typeC)) {
             startQuiz(3, "COUNTRIES");
-        }
-        else if (event.getSource().equals(typeD)){
+        } else if (event.getSource().equals(typeD)) {
             startQuiz(4, "RIDDLES");
         }
     }
@@ -73,7 +59,7 @@ public class Session1ViewController implements Initializable {
         in this case its better to split it to multiple similar views
         */
         String view = null; // hold the requested view string
-        switch (num){ // check the passed number and set view accordingly
+        switch (num) { // check the passed number and set view accordingly
             case 1:
                 view = "/QuesViews/Science/ScienceView.fxml";
                 ScienceViewController.setCurrent(score);
@@ -99,8 +85,11 @@ public class Session1ViewController implements Initializable {
             Stage stage = new Stage();
             stage.setTitle(type); // set window name as the passed type
             stage.setScene(scene); // set the stage scene
+            stage.getIcons().add(new Image("/resources/spordemic.png")); // set window icon
             rootPane.getScene().getWindow().hide(); // hide the types view
             stage.show(); // show the new stage
-            } catch (IOException e) { e.printStackTrace(); } // gotta catch 'em all
-        }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } // gotta catch 'em all
+    }
 }

@@ -15,8 +15,12 @@ import java.util.Optional;
 
 public class Main extends Application {
 
+    public static void main(String[] args) {
+        launch(args);
+    }
+
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         // to fix loading from the jar set the fxml directory as "/Splash/Splash.fxml" dunno why this is not the default behavior
         Parent root = FXMLLoader.load(getClass().getResource("/Splash/Splash.fxml"));
         primaryStage.getIcons().add(new Image("/resources/spordemic.png")); // set window icon
@@ -32,17 +36,12 @@ public class Main extends Application {
             ButtonType No = new ButtonType("No");
             alert.getButtonTypes().setAll(Yes, No);
             Optional<ButtonType> result = alert.showAndWait();
-            if (result.isPresent() && result.get() == Yes){
+            if (result.isPresent() && result.get() == Yes) {
                 // exit the app using platforms preferred way.
                 Platform.exit();
                 System.exit(0);
             }
         });
         primaryStage.show();
-    }
-
-
-    public static void main(String[] args) {
-        launch(args);
     }
 }

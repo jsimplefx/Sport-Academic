@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -17,12 +18,13 @@ import java.util.ResourceBundle;
 public class SplashController implements Initializable {
     @FXML
     private AnchorPane rootPane; // parent anchor pane
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-            new Splash().start(); // start the new thread
+        new Splash().start(); // start the new thread
     }
 
-    class Splash extends Thread{ // different thread for the splash
+    class Splash extends Thread { // different thread for the splash
         @Override
         public void run() {
             try {
@@ -35,6 +37,7 @@ public class SplashController implements Initializable {
                             root = FXMLLoader.load(getClass().getResource("/SessionView/SessionView.fxml")); // load new view
                             Scene scene = new Scene(root); // new scene
                             Stage stage = new Stage(); // new stage
+                            stage.getIcons().add(new Image("/resources/spordemic.png")); // set window icon
                             stage.setScene(scene); // set stage scene
                             stage.setTitle("Select Category");
                             stage.show(); // show the new stage
@@ -44,7 +47,9 @@ public class SplashController implements Initializable {
                         }
                     }
                 });
-            } catch (InterruptedException e) { e.printStackTrace(); }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

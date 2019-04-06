@@ -7,336 +7,371 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
-<BorderPane fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="QuesViews.Entertainment.EntViewController">
-   <bottom>
-      <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="1920.0" spacing="10.0" BorderPane.alignment="CENTER">
-         <children>
-            <JFXButton fx:id="backbtn" onAction="#backToTypes" style="-fx-background-color: #30336b;" text="Back to types" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </JFXButton>
-            <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="1050.0" text="Score:" HBox.hgrow="ALWAYS">
-               <font>
-                  <Font size="23.0" />
-               </font>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </Label>
-            <Label fx:id="Score" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="177.0" layoutY="20.0" prefWidth="100.0" text="00">
-               <font>
-                  <Font size="23.0" />
-               </font>
-            </Label>
-         </children>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-      </HBox>
-   </bottom>
-   <center>
-      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
-         <children>
-            <GridPane hgap="10.0" prefHeight="660.0" prefWidth="1920.0" vgap="10.0">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <children>
-                  <BorderPane fx:id="que1" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="1" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que6" layoutX="15.0" layoutY="15.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.rowIndex="1">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="6" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que2" layoutX="15.0" layoutY="15.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="1">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="2" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que3" layoutX="399.0" layoutY="15.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="2">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="3" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que4" layoutX="783.0" layoutY="15.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="3">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="4" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que5" layoutX="1167.0" layoutY="15.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="4">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="5" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que7" layoutX="15.0" layoutY="355.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="7" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que8" layoutX="399.0" layoutY="355.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="8" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que9" layoutX="783.0" layoutY="355.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="3" GridPane.rowIndex="1">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="9" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que10" layoutX="1167.0" layoutY="355.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="4" GridPane.rowIndex="1">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="10" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-               </children>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </GridPane>
-            <GridPane hgap="10.0" prefHeight="370.0" prefWidth="1920.0" vgap="10.0">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <children>
-                  <BorderPane fx:id="que11" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="11" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que12" layoutX="15.0" layoutY="15.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="1">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="12" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que13" layoutX="335.0" layoutY="15.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="2">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="13" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que14" layoutX="655.0" layoutY="15.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="3">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="14" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que15" layoutX="975.0" layoutY="15.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="4">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="15" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-                  <BorderPane fx:id="que16" layoutX="1295.0" layoutY="15.0" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="5">
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                     <styleClass>
-                        <String fx:value="tiles" />
-                        <String fx:value="pane" />
-                     </styleClass>
-                     <center>
-                        <Label text="16" textFill="WHITE" BorderPane.alignment="CENTER">
-                           <font>
-                              <Font size="40.0" />
-                           </font>
-                        </Label>
-                     </center>
-                  </BorderPane>
-               </children>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </GridPane>
-         </children>
-      </VBox>
-   </center>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="rootPane" prefHeight="768.0" prefWidth="1366.0"
+            xmlns="http://javafx.com/javafx/8.0.171" fx:controller="QuesViews.Entertainment.EntViewController">
+    <bottom>
+        <HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="50.0" prefWidth="1920.0"
+              spacing="10.0" BorderPane.alignment="CENTER">
+            <children>
+                <JFXButton fx:id="backbtn" onAction="#backToTypes" style="-fx-background-color: #30336b;"
+                           text="Back to types" textFill="WHITE">
+                    <font>
+                        <Font size="18.0"/>
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND"/>
+                    </cursor>
+                </JFXButton>
+                <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" prefWidth="1050.0" text="Score:"
+                       HBox.hgrow="ALWAYS">
+                    <font>
+                        <Font size="23.0"/>
+                    </font>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="Score" alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="177.0" layoutY="20.0"
+                       prefWidth="100.0" text="00">
+                    <font>
+                        <Font size="23.0"/>
+                    </font>
+                </Label>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+            </padding>
+        </HBox>
+    </bottom>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane hgap="10.0" prefHeight="660.0" prefWidth="1920.0" vgap="10.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <BorderPane fx:id="que1" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0"
+                                    style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="1" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que6" layoutX="15.0" layoutY="15.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.rowIndex="1">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="6" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que2" layoutX="15.0" layoutY="15.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="1">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="2" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que3" layoutX="399.0" layoutY="15.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="2">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="3" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que4" layoutX="783.0" layoutY="15.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="3">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="4" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que5" layoutX="1167.0" layoutY="15.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="4">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="5" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que7" layoutX="15.0" layoutY="355.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="7" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que8" layoutX="399.0" layoutY="355.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="8" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que9" layoutX="783.0" layoutY="355.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="9" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que10" layoutX="1167.0" layoutY="355.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="4" GridPane.rowIndex="1">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="10" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                    </children>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                </GridPane>
+                <GridPane hgap="10.0" prefHeight="370.0" prefWidth="1920.0" vgap="10.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <BorderPane fx:id="que11" onMouseClicked="#showQue" prefHeight="200.0" prefWidth="200.0"
+                                    style="-fx-background-color: #eb4d4b;" stylesheets="@/Stylesheet/style.css">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="11" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que12" layoutX="15.0" layoutY="15.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="1">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="12" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que13" layoutX="335.0" layoutY="15.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="2">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="13" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que14" layoutX="655.0" layoutY="15.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="3">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="14" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que15" layoutX="975.0" layoutY="15.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="4">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="15" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                        <BorderPane fx:id="que16" layoutX="1295.0" layoutY="15.0" onMouseClicked="#showQue"
+                                    prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #eb4d4b;"
+                                    stylesheets="@/Stylesheet/style.css" GridPane.columnIndex="5">
+                            <cursor>
+                                <Cursor fx:constant="HAND"/>
+                            </cursor>
+                            <styleClass>
+                                <String fx:value="tiles"/>
+                                <String fx:value="pane"/>
+                            </styleClass>
+                            <center>
+                                <Label text="16" textFill="WHITE" BorderPane.alignment="CENTER">
+                                    <font>
+                                        <Font size="40.0"/>
+                                    </font>
+                                </Label>
+                            </center>
+                        </BorderPane>
+                    </children>
+                    <VBox.margin>
+                        <Insets/>
+                    </VBox.margin>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+                    </padding>
+                </GridPane>
+            </children>
+        </VBox>
+    </center>
 </BorderPane>

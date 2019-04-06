@@ -3,8 +3,6 @@ package QuesViews.Religion;
 import CatView.Session2.Session2ViewController;
 import animatefx.animation.ZoomIn;
 import com.jfoenix.controls.JFXButton;
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,16 +13,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -33,75 +30,55 @@ import java.util.ResourceBundle;
 
 public class ReligionViewController implements Initializable {
 
+    private static int current; // current score
     @FXML
     private BorderPane rootPane; // the main border pane
-
     @FXML
     private BorderPane que1;
-
     @FXML
     private BorderPane que6;
-
     @FXML
     private BorderPane que2;
-
     @FXML
     private BorderPane que3;
-
     @FXML
     private BorderPane que4;
-
     @FXML
     private BorderPane que5;
-
     @FXML
     private BorderPane que7;
-
     @FXML
     private BorderPane que8;
-
     @FXML
     private BorderPane que9;
-
     @FXML
     private BorderPane que10;
-
     @FXML
     private BorderPane que11;
-
     @FXML
     private BorderPane que12;
-
     @FXML
     private BorderPane que13;
-
     @FXML
     private BorderPane que14;
-
     @FXML
     private BorderPane que15;
-
     @FXML
     private BorderPane que16;
-
     @FXML
     private Label Score; // label for tracking the points
-
-    private static int current; // current score
     private String[][] Options = new String[16][4]; // the answer options
     private String[] Ques = new String[16]; // the questions themselves
-    private final Integer Qtime = 10; // total time to give for each question
-    private Integer seconds = Qtime; // need this cuz you cant modify a final variable
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        initStuff(); // init the questions and options firstString
-        Score.setText(String.valueOf(current)); // set value of score label based on the tracked current score across all categories
-    }
 
     // setter for current
     public static void setCurrent(int current) {
         ReligionViewController.current = current;
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        initStuff(); // init the questions and options first
+        Score.setText(String.valueOf(current)); // set value of score label based on the tracked current score across all categories
     }
 
     @FXML
@@ -187,41 +164,21 @@ public class ReligionViewController implements Initializable {
         B.setTextFill(Color.WHITE);
         Label C = new Label("C. ");
         C.setTextFill(Color.WHITE);
-        if (Options[quenum][2].equals("")) C.setText(""); // set text to an empty string if the question has only 3 answer options
+        if (Options[quenum][2].equals(""))
+            C.setText(""); // set text to an empty string if the question has only 3 answer options
         Label D = new Label("D. ");
         D.setTextFill(Color.WHITE);
-        if (Options[quenum][3].equals("")) D.setText(""); // set text to an empty string if the question has only 3 answer options
+        if (Options[quenum][3].equals(""))
+            D.setText(""); // set text to an empty string if the question has only 3 answer options
         LabelContainer.getChildren().addAll(A, B, C, D);
 
         HBox contain = new HBox(); // new hbox to make it look like real life MCQ options
         contain.getChildren().addAll(LabelContainer, optionsContainer);
         pane.setBottom(contain); // put the hbox at the bottom of the Border pane
 
-        Label timer = new Label(); // timer label
-        timer.setTextFill(Color.WHITE); // color
-        timer.setFont(Font.font(30)); // set font size
-        pane.setTop(timer); // set timer to top of pane
-        BorderPane.setAlignment(timer, Pos.CENTER); // position the label to the middle of the top
-        BorderPane.setMargin(timer, new Insets(10, 0, 0, 0)); // 10px padding from top
-
-        Timeline time = new Timeline(); // new frame(the only actual way to update a view per second)
-        KeyFrame frame = new KeyFrame( Duration.seconds(1), e -> {
-            seconds--; // the global seconds variable
-            timer.setText(seconds.toString()); // update the timer label
-            if (seconds <= 0) {
-                disbtns(time, ans, timer, pane); // regular disable routine
-                pop.hide();
-            }
-        });
-        // some timeline stuff
-        time.setCycleCount(Timeline.INDEFINITE); //indefinite number of cycles
-        time.getKeyFrames().add(frame); // add the frame to timer
-        time.playFromStart(); // play timer from start every time
-
         for (JFXButton btn : ans) { // set the on click action on each button(here is a great example of why arrays are MVP)
             btn.setOnAction(e -> {
                 checkAnswer(btn, quenum);
-                disbtns(time, ans, timer, pane);
                 pop.hide();
             });
 
@@ -241,7 +198,7 @@ public class ReligionViewController implements Initializable {
             ans[i] = new JFXButton(); // init the buttons
             ans[i].setTextFill(Color.WHITE); // set button text color
             ans[i].setWrapText(true); // wrap the text around
-            ans[i].setTextAlignment(TextAlignment.LEFT);
+            ans[i].setTextAlignment(TextAlignment.LEFT); // align button text to the left
             ans[i].setFocusTraversable(false); // hide the initial focus on the first button
         }
 
@@ -362,41 +319,123 @@ public class ReligionViewController implements Initializable {
     }
 
 
-    // some cleanup routine. (not needed anymore since we hide the whole panel but since removing it fucks up the timer it stays
-    private void disbtns(Timeline t, JFXButton[] a, Label l, BorderPane pane) {
-        t.stop(); // stop the timer
-        for (JFXButton btn : a) {
-            btn.setDisable(true);
-        } // disable the buttons
-        l.setVisible(false); // hide the timer label
-        pane.setCenter(null); // hide the question
-        pane.setOnMouseClicked(null); // disable panel click action
-        seconds = 10; // reset the interval for the question
-    }
-
-
     // check if the text on a passed item is correct (this is gonna be hardwired to the right answer from Options[][]).
-    private void checkAnswer(JFXButton selected, int quenum){
+    private void checkAnswer(JFXButton selected, int quenum) {
         int current = Integer.parseInt(Score.getText()); // to get the current score
-        // the score
-        int score = 10;
-        switch (quenum){
-            case 0: if (selected.getText().equals(Options[0][1])) Score.setText(String.valueOf(current + score)); break;
-            case 1: if (selected.getText().equals(Options[1][2])) Score.setText(String.valueOf(current + score)); break;
-            case 2: if (selected.getText().equals(Options[2][0])) Score.setText(String.valueOf(current + score)); break;
-            case 3: if (selected.getText().equals(Options[3][0])) Score.setText(String.valueOf(current + score)); break;
-            case 4: if (selected.getText().equals(Options[4][1])) Score.setText(String.valueOf(current + score)); break;
-            case 5: if (selected.getText().equals(Options[5][0])) Score.setText(String.valueOf(current + score)); break;
-            case 6: if (selected.getText().equals(Options[6][2])) Score.setText(String.valueOf(current + score)); break;
-            case 7: if (selected.getText().equals(Options[7][1])) Score.setText(String.valueOf(current + score)); break;
-            case 8: if (selected.getText().equals(Options[8][3])) Score.setText(String.valueOf(current + score)); break;
-            case 9: if (selected.getText().equals(Options[9][1])) Score.setText(String.valueOf(current + score)); break;
-            case 10: if (selected.getText().equals(Options[10][0])) Score.setText(String.valueOf(current + score)); break;
-            case 11: if (selected.getText().equals(Options[11][3])) Score.setText(String.valueOf(current + score)); break;
-            case 12: if (selected.getText().equals(Options[12][3])) Score.setText(String.valueOf(current + score)); break;
-            case 13: if (selected.getText().equals(Options[13][2])) Score.setText(String.valueOf(current + score)); break;
-            case 14: if (selected.getText().equals(Options[14][0])) Score.setText(String.valueOf(current + score)); break;
-            case 15: if (selected.getText().equals(Options[15][1])) Score.setText(String.valueOf(current + score)); break;
+        int points = 5;
+        switch (quenum) {
+            case 0:
+                if (selected.getText().equals(Options[0][1])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[0][1])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 1:
+                if (selected.getText().equals(Options[1][2])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[1][2])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 2:
+                if (selected.getText().equals(Options[2][0])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[2][0])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 3:
+                if (selected.getText().equals(Options[3][0])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[3][0])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 4:
+                if (selected.getText().equals(Options[4][1])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[4][1])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 5:
+                if (selected.getText().equals(Options[5][0])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[5][0])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 6:
+                if (selected.getText().equals(Options[6][2])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[6][2])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 7:
+                if (selected.getText().equals(Options[7][1])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[7][1])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 8:
+                if (selected.getText().equals(Options[8][3])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[8][3])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 9:
+                if (selected.getText().equals(Options[9][1])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[9][1])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 10:
+                if (selected.getText().equals(Options[10][0])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[10][0])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 11:
+                if (selected.getText().equals(Options[11][3])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[11][3])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 12:
+                if (selected.getText().equals(Options[12][3])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[12][3])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 13:
+                if (selected.getText().equals(Options[13][2])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[13][2])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 14:
+                if (selected.getText().equals(Options[14][0])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[14][0])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
+            case 15:
+                if (selected.getText().equals(Options[15][1])) {
+                    Score.setText(String.valueOf(current + points));
+                } else if (!selected.getText().equals(Options[15][1])) { // deduct 5 marks if question is wrong
+                    if (current > 0) Score.setText(String.valueOf(current - 5)); // check if marks is 0 first
+                }
+                break;
         }
     }
 
@@ -521,6 +560,7 @@ public class ReligionViewController implements Initializable {
                 root = FXMLLoader.load(getClass().getResource("/CatView/Session2/Session2View.fxml"));
                 Scene scene = new Scene(root);
                 Stage stage = new Stage();
+                stage.getIcons().add(new Image("/resources/spordemic.png")); // set window icon
                 stage.setTitle("Sport Academics");
                 stage.setScene(scene);
                 stage.show();
