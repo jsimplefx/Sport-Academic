@@ -74,13 +74,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/QuesViews/Countries/CountriesViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2561">
-              <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+            <state relative-caret-position="322">
+              <caret line="188" column="42" lean-forward="true" selection-start-line="188" selection-start-column="42" selection-end-line="188" selection-end-column="42" />
               <folding>
                 <element signature="method#showQue#0;class#CountriesViewController#0" />
-                <element signature="method#initPane#0;class#CountriesViewController#0" />
-                <element signature="method#setBtns#0;class#CountriesViewController#0" />
                 <element signature="method#disbtns#0;class#CountriesViewController#0" />
+                <element signature="method#checkAnswer#0;class#CountriesViewController#0" />
                 <element signature="method#initStuff#0;class#CountriesViewController#0" />
                 <element signature="method#backToTypes#0;class#CountriesViewController#0" />
               </folding>
@@ -91,13 +90,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/QuesViews/Entertainment/EntViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+            <state relative-caret-position="420">
+              <caret line="188" column="11" selection-start-line="188" selection-start-column="11" selection-end-line="188" selection-end-column="11" />
               <folding>
                 <element signature="method#showQue#0;class#EntViewController#0" />
-                <element signature="method#initPane#0;class#EntViewController#0" />
-                <element signature="method#setBtns#0;class#EntViewController#0" />
                 <element signature="method#disbtns#0;class#EntViewController#0" />
+                <element signature="method#checkAnswer#0;class#EntViewController#0" />
                 <element signature="method#initStuff#0;class#EntViewController#0" />
                 <element signature="method#backToTypes#0;class#EntViewController#0" />
               </folding>
@@ -108,12 +106,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/QuesViews/Riddles/RiddlesViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4700">
-              <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+            <state relative-caret-position="228">
+              <caret line="185" column="41" selection-start-line="185" selection-start-column="41" selection-end-line="185" selection-end-column="41" />
               <folding>
                 <element signature="method#showQue#0;class#RiddlesViewController#0" />
-                <element signature="method#setBtns#0;class#RiddlesViewController#0" />
                 <element signature="method#disbtns#0;class#RiddlesViewController#0" />
+                <element signature="method#checkAnswer#0;class#RiddlesViewController#0" />
                 <element signature="method#initStuff#0;class#RiddlesViewController#0" />
                 <element signature="method#backToTypes#0;class#RiddlesViewController#0" />
               </folding>
@@ -124,11 +122,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/QuesViews/Science/ScienceViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="51" />
+            <state relative-caret-position="489">
+              <caret line="251" column="49" selection-start-line="251" selection-start-column="49" selection-end-line="251" selection-end-column="49" />
               <folding>
                 <element signature="method#showQue#0;class#ScienceViewController#0" />
-                <element signature="method#setBtns#0;class#ScienceViewController#0" />
                 <element signature="method#disbtns#0;class#ScienceViewController#0" />
                 <element signature="method#checkAnswer#0;class#ScienceViewController#0" />
                 <element signature="e#14953#17440#0" />
@@ -225,10 +222,10 @@
         <option value="$PROJECT_DIR$/src/Splash/Splash.fxml" />
         <option value="$PROJECT_DIR$/src/Splash/SplashController.java" />
         <option value="$PROJECT_DIR$/src/SessionView/SessionViewController.java" />
-        <option value="$PROJECT_DIR$/src/QuesViews/Science/ScienceViewController.java" />
         <option value="$PROJECT_DIR$/src/QuesViews/Riddles/RiddlesViewController.java" />
-        <option value="$PROJECT_DIR$/src/QuesViews/Entertainment/EntViewController.java" />
         <option value="$PROJECT_DIR$/src/QuesViews/Countries/CountriesViewController.java" />
+        <option value="$PROJECT_DIR$/src/QuesViews/Entertainment/EntViewController.java" />
+        <option value="$PROJECT_DIR$/src/QuesViews/Science/ScienceViewController.java" />
       </list>
     </option>
   </component>
@@ -342,7 +339,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554552468533" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554553148424" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Random/Java/animatefx-demo" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -473,10 +470,10 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="39" width="1346" height="719" extended-state="1" />
+    <frame x="10" y="39" width="1346" height="719" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.17384844" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.17384844" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.32986626" />
       <window_info id="Designer" order="3" />
@@ -514,6 +511,18 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/QuesViews/Countries/CountriesViewController.java</url>
+          <line>146</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
     <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
@@ -755,13 +764,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/QuesViews/Countries/CountriesViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="188" column="42" lean-forward="true" selection-start-line="188" selection-start-column="42" selection-end-line="188" selection-end-column="42" />
+          <folding>
+            <element signature="method#showQue#0;class#CountriesViewController#0" />
+            <element signature="method#disbtns#0;class#CountriesViewController#0" />
+            <element signature="method#checkAnswer#0;class#CountriesViewController#0" />
+            <element signature="method#initStuff#0;class#CountriesViewController#0" />
+            <element signature="method#backToTypes#0;class#CountriesViewController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/QuesViews/Entertainment/EntViewController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="188" column="11" selection-start-line="188" selection-start-column="11" selection-end-line="188" selection-end-column="11" />
+          <folding>
+            <element signature="method#showQue#0;class#EntViewController#0" />
+            <element signature="method#disbtns#0;class#EntViewController#0" />
+            <element signature="method#checkAnswer#0;class#EntViewController#0" />
+            <element signature="method#initStuff#0;class#EntViewController#0" />
+            <element signature="method#backToTypes#0;class#EntViewController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/QuesViews/Science/ScienceViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="39" column="29" selection-start-line="39" selection-start-column="29" selection-end-line="39" selection-end-column="51" />
+        <state relative-caret-position="489">
+          <caret line="251" column="49" selection-start-line="251" selection-start-column="49" selection-end-line="251" selection-end-column="49" />
           <folding>
             <element signature="method#showQue#0;class#ScienceViewController#0" />
-            <element signature="method#setBtns#0;class#ScienceViewController#0" />
             <element signature="method#disbtns#0;class#ScienceViewController#0" />
             <element signature="method#checkAnswer#0;class#ScienceViewController#0" />
             <element signature="e#14953#17440#0" />
@@ -771,44 +807,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/QuesViews/Entertainment/EntViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
-          <folding>
-            <element signature="method#showQue#0;class#EntViewController#0" />
-            <element signature="method#initPane#0;class#EntViewController#0" />
-            <element signature="method#setBtns#0;class#EntViewController#0" />
-            <element signature="method#disbtns#0;class#EntViewController#0" />
-            <element signature="method#initStuff#0;class#EntViewController#0" />
-            <element signature="method#backToTypes#0;class#EntViewController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/QuesViews/Countries/CountriesViewController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2561">
-          <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
-          <folding>
-            <element signature="method#showQue#0;class#CountriesViewController#0" />
-            <element signature="method#initPane#0;class#CountriesViewController#0" />
-            <element signature="method#setBtns#0;class#CountriesViewController#0" />
-            <element signature="method#disbtns#0;class#CountriesViewController#0" />
-            <element signature="method#initStuff#0;class#CountriesViewController#0" />
-            <element signature="method#backToTypes#0;class#CountriesViewController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/QuesViews/Riddles/RiddlesViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4700">
-          <caret line="39" column="51" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+        <state relative-caret-position="228">
+          <caret line="185" column="41" selection-start-line="185" selection-start-column="41" selection-end-line="185" selection-end-column="41" />
           <folding>
             <element signature="method#showQue#0;class#RiddlesViewController#0" />
-            <element signature="method#setBtns#0;class#RiddlesViewController#0" />
             <element signature="method#disbtns#0;class#RiddlesViewController#0" />
+            <element signature="method#checkAnswer#0;class#RiddlesViewController#0" />
             <element signature="method#initStuff#0;class#RiddlesViewController#0" />
             <element signature="method#backToTypes#0;class#RiddlesViewController#0" />
           </folding>

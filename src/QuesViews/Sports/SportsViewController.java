@@ -200,6 +200,7 @@ public class SportsViewController implements Initializable {
             ans[i].setWrapText(true); // wrap the text around
             ans[i].setTextAlignment(TextAlignment.LEFT); // align button text to the left
             ans[i].setFocusTraversable(false); // hide the initial focus on the first button
+            ans[i].setStyle("-fx-cursor: hand;");
         }
 
         switch (quenum) {

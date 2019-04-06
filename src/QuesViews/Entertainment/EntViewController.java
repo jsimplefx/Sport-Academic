@@ -186,6 +186,7 @@ public class EntViewController implements Initializable {
         AtomicBoolean isAud = new AtomicBoolean(); // for tracking the button value
         JFXButton aud = new JFXButton("Asked Audience?"); // button to check if the user asked the audience
         aud.setTextFill(Color.WHITE); // set the button text color
+        aud.setStyle("-fx-cursor: hand;");
         aud.setOnAction(e -> {
             points = 5; // change the points to 5 when the user asks audience
             isAud.set(true); // set to true
@@ -248,6 +249,7 @@ public class EntViewController implements Initializable {
             ans[i].setWrapText(true); // wrap the text around
             ans[i].setTextAlignment(TextAlignment.LEFT); // align button text to the left
             ans[i].setFocusTraversable(false); // hide the initial focus on the first button
+            ans[i].setStyle("-fx-cursor: hand;");
         }
 
         switch (quenum) {
