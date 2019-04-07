@@ -439,7 +439,8 @@ public class EntViewController implements Initializable {
         Options[5][2] = "";
         Options[5][3] = "";
 
-        Ques[6] = "A fantasy-science fiction film where most of humanity are captured by a race of machines that live off of humans’ body and electrochemical energy.";
+        Ques[6] = "A fantasy-science fiction film where most of humanity are captured by " +
+                  "a race of machines that live off of humans’ body and electrochemical energy.";
         Options[6][0] = "A-X-L";
         Options[6][1] = "The Matrix"; // correct
         Options[6][2] = "Terminator Salvation";
@@ -460,7 +461,7 @@ public class EntViewController implements Initializable {
         Ques[9] = "The most recent released marvel movie.";
         Options[9][0] = "Ant- man and the wasp";
         Options[9][1] = "Captain Marvel"; // correct
-        Options[9][2] = " Avengers: Infinity War";
+        Options[9][2] = "Avengers: Infinity War";
         Options[9][3] = "";
 
         Ques[10] = "What name was the celebrity talk show host Oprah Winfrey born with? ";

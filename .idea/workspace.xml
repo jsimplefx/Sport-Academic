@@ -70,8 +70,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/QuesViews/Sports/SportsViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="186" column="53" selection-start-line="186" selection-start-column="53" selection-end-line="186" selection-end-column="53" />
+            <state relative-caret-position="-487">
+              <caret line="469" column="26" lean-forward="true" selection-start-line="469" selection-start-column="26" selection-end-line="469" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#showQue#0;class#CountriesViewController#0" />
@@ -79,8 +79,41 @@
                 <element signature="e#9377#13593#0" />
                 <element signature="method#disbtns#0;class#CountriesViewController#0" />
                 <element signature="e#14457#16480#0" />
-                <element signature="method#initStuff#0;class#CountriesViewController#0" />
                 <element signature="method#backToTypes#0;class#SportsViewController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/QuesViews/Countries/CountriesViewController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="189" lean-forward="true" selection-start-line="189" selection-end-line="189" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#showQue#0;class#CountriesViewController#0" />
+                <element signature="e#9377#13593#0" />
+                <element signature="method#disbtns#0;class#CountriesViewController#0" />
+                <element signature="method#checkAnswer#0;class#CountriesViewController#0" />
+                <element signature="method#backToTypes#0;class#CountriesViewController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/QuesViews/Entertainment/EntViewController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="138">
+              <caret line="186" column="53" selection-start-line="186" selection-start-column="53" selection-end-line="186" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#setBtns#0;class#EntViewController#0" />
+                <element signature="method#disbtns#0;class#EntViewController#0" />
+                <element signature="method#checkAnswer#0;class#EntViewController#0" />
+                <element signature="method#initStuff#0;class#EntViewController#0" />
+                <element signature="method#backToTypes#0;class#EntViewController#0" />
               </folding>
             </state>
           </provider>
@@ -205,6 +238,24 @@
               <item name="Sport Academics" type="58d84e3e:PackageViewProjectNode" />
               <item name="Sport Academics" type="616d4139:PackageViewModuleNode" />
               <item name="QuesViews" type="1f31426a:PackageElementNode" />
+              <item name="Countries" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="Sport Academics" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Sport Academics" type="616d4139:PackageViewModuleNode" />
+              <item name="QuesViews" type="1f31426a:PackageElementNode" />
+              <item name="Entertainment" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="Sport Academics" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Sport Academics" type="616d4139:PackageViewModuleNode" />
+              <item name="QuesViews" type="1f31426a:PackageElementNode" />
+              <item name="Science" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="Sport Academics" type="58d84e3e:PackageViewProjectNode" />
+              <item name="Sport Academics" type="616d4139:PackageViewModuleNode" />
+              <item name="QuesViews" type="1f31426a:PackageElementNode" />
               <item name="Sports" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
@@ -243,7 +294,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554646405056" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1554646943002" />
     <property name="dynamic.classpath" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Random/Java/animatefx-demo" />
     <property name="project.structure.last.edited" value="Artifacts" />
@@ -374,10 +425,10 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="39" width="1346" height="719" extended-state="0" />
+    <frame x="10" y="39" width="1346" height="719" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.15453194" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.15453194" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.32986626" />
       <window_info id="Designer" order="3" />
@@ -613,25 +664,25 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/QuesViews/Science/ScienceViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/QuesViews/Countries/CountriesViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-445">
-          <caret line="196" column="35" lean-forward="true" selection-start-line="196" selection-start-column="35" selection-end-line="196" selection-end-column="35" />
+        <state relative-caret-position="192">
+          <caret line="189" lean-forward="true" selection-start-line="189" selection-end-line="189" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#showQue#0;class#ScienceViewController#0" />
-            <element signature="e#8730#8988#1" />
-            <element signature="e#9013#13230#0" />
-            <element signature="method#disbtns#0;class#ScienceViewController#0" />
-            <element signature="method#backToTypes#0;class#ScienceViewController#0" />
+            <element signature="method#showQue#0;class#CountriesViewController#0" />
+            <element signature="e#9377#13593#0" />
+            <element signature="method#disbtns#0;class#CountriesViewController#0" />
+            <element signature="method#checkAnswer#0;class#CountriesViewController#0" />
+            <element signature="method#backToTypes#0;class#CountriesViewController#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/QuesViews/Entertainment/EntViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="193" column="28" selection-start-line="193" selection-start-column="28" selection-end-line="193" selection-end-column="28" />
+        <state relative-caret-position="138">
+          <caret line="186" column="53" selection-start-line="186" selection-start-column="53" selection-end-line="186" selection-end-column="53" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#setBtns#0;class#EntViewController#0" />
@@ -643,25 +694,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/QuesViews/Countries/CountriesViewController.java">
+    <entry file="file://$PROJECT_DIR$/src/QuesViews/Science/ScienceViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="367" lean-forward="true" selection-end-line="533" />
+        <state relative-caret-position="1395">
+          <caret line="448" column="58" selection-start-line="448" selection-start-column="58" selection-end-line="448" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#showQue#0;class#CountriesViewController#0" />
-            <element signature="method#initPane#0;class#CountriesViewController#0" />
-            <element signature="e#9377#13593#0" />
-            <element signature="method#disbtns#0;class#CountriesViewController#0" />
-            <element signature="method#backToTypes#0;class#CountriesViewController#0" />
+            <element signature="method#showQue#0;class#ScienceViewController#0" />
+            <element signature="method#disbtns#0;class#ScienceViewController#0" />
+            <element signature="method#backToTypes#0;class#ScienceViewController#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/QuesViews/Sports/SportsViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="186" column="53" selection-start-line="186" selection-start-column="53" selection-end-line="186" selection-end-column="53" />
+        <state relative-caret-position="-487">
+          <caret line="469" column="26" lean-forward="true" selection-start-line="469" selection-start-column="26" selection-end-line="469" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#showQue#0;class#CountriesViewController#0" />
@@ -669,7 +718,6 @@
             <element signature="e#9377#13593#0" />
             <element signature="method#disbtns#0;class#CountriesViewController#0" />
             <element signature="e#14457#16480#0" />
-            <element signature="method#initStuff#0;class#CountriesViewController#0" />
             <element signature="method#backToTypes#0;class#SportsViewController#0" />
           </folding>
         </state>

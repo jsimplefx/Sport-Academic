@@ -419,7 +419,7 @@ public class ScienceViewController implements Initializable {
         Options[2][0] = "Dmitri Mendeleev."; // correct
         Options[2][1] = "John Dalton.";
         Options[2][2] = "Ernest Rutherford";
-        Options[2][3] = " Sir Joseph John Thomson.";
+        Options[2][3] = "Sir Joseph John Thomson.";
 
         Ques[3] = "What is the main cause of seasons on the Earth?";
         Options[3][0] = "the distance between the earth and the sun";
@@ -427,26 +427,26 @@ public class ScienceViewController implements Initializable {
         Options[3][2] = "the title of the earth's axis in relation to the sun"; // correct
         Options[3][3] = "the speed that the earth rotates around the sun";
 
-        Ques[4] = "Which of the following memory is required to store data so that ,further requests for that data can be served faster ?";
+        Ques[4] = "Which of the following memory is required to store data so that ,further requests for that data can be served faster?";
         Options[4][0] = "Flash memory";
         Options[4][1] = "Flip Flop";
         Options[4][2] = "External Hard disk";
-        Options[4][3] = " Cache memory"; // correct
+        Options[4][3] = "Cache memory"; // correct
 
-        Ques[5] = ".Which Vitamin deficiency causes night blindness ?";
-        Options[5][0] = "vitamin A."; // correct
-        Options[5][1] = "vitamin K.";
-        Options[5][2] = "vitamin D.";
-        Options[5][3] = "vitamin C++."; // yup thats a thing
+        Ques[5] = ".Which Vitamin deficiency causes night blindness?";
+        Options[5][0] = "vitamin A"; // correct
+        Options[5][1] = "vitamin K";
+        Options[5][2] = "vitamin D";
+        Options[5][3] = "vitamin C++"; // yup thats a thing
 
         Ques[6] = "Which of the Following day is Celebrated as –Pi day?";
-        Options[6][0] = "26 July.";
-        Options[6][1] = "14 March."; // correct
+        Options[6][0] = "26 July";
+        Options[6][1] = "14 March"; // correct
         Options[6][2] = "27 December";
         Options[6][3] = "17 April";
 
         Ques[7] = "Many diseases have an incubation period.  what is an  incubation period ?";
-        Options[7][0] = "The effect of a disease on babies.";
+        Options[7][0] = "The effect of a disease on babies";
         Options[7][1] = "The period during which someone builds up immunity to a disease";
         Options[7][2] = "The period during which someone has an infection, but is not showing symptoms."; // correct
         Options[7][3] = "The recovery period after being sick";

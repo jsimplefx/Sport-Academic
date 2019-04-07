@@ -467,7 +467,7 @@ public class SportsViewController implements Initializable {
         Options[10][0] = "Cassius Clay"; // correct
         Options[10][1] = "Joe Frazier";
         Options[10][2] = "George Foreman";
-        Options[10][3] = " James Bond";
+        Options[10][3] = "James Bond";
 
         Ques[11] = "This year marks A historic decision made by the IOC (International Olympic Cmmittee): " +
                    "Any new sport to be included on the Olympic programme had to include women’s events.";
