@@ -184,11 +184,11 @@ public class EntViewController implements Initializable {
         JFXButton[] ans = new JFXButton[4]; // create option buttons
         setBtns(ans, quenum, que); // set the question and answers based on passed pane number
         VBox optionsContainer = new VBox(); //new Vbox
-        optionsContainer.setAlignment(Pos.CENTER); // set the alignment of the items inside
+        optionsContainer.setAlignment(Pos.CENTER_LEFT); // set the alignment of the items inside
         optionsContainer.setSpacing(10); // internal spacing
         optionsContainer.getChildren().setAll(ans); // add the yes and no bottoms
-        VBox LabelContainer = new VBox();
 
+        VBox LabelContainer = new VBox();
         LabelContainer.setSpacing(20); // internal spacing
         LabelContainer.setPadding(new Insets(5, 0 ,0 , 0));
         Label A = new Label("A. ");
