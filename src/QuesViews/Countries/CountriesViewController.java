@@ -73,6 +73,8 @@ public class CountriesViewController implements Initializable {
     @FXML
     private BorderPane que16;
     @FXML
+    private JFXButton backbtn;
+    @FXML
     private Label Score; // label for tracking the score
     private String[][] Options = new String[16][4]; // the answer options
     private String[] Ques = new String[16]; // the questions themselves
@@ -145,13 +147,14 @@ public class CountriesViewController implements Initializable {
 
     private void initPane(int quenum, BorderPane paneParent) {
         BorderPane pane = new BorderPane(); // create a new pane instead of directly modifying the main pane
-        pane.setPrefSize(500, 500); // set preferred pane size
+        pane.setPrefSize(800, 600); // set preferred pane size
         pane.setStyle("-fx-background-color: #eb4d4b; -fx-border-color: #d1d8e0; -fx-border-width: 3; "); // set pane styling
         pane.setPadding(new Insets(10)); // set padding for all sides
         paneParent.getChildren().removeAll(); // remove the main pane children
         paneParent.setCenter(pane); // set new pane as center
         Label que = new Label(); // the question label
         que.setTextFill(Color.WHITE); // set the question color
+        que.setFont(Font.font(20)); // set question label text size
         que.setWrapText(true); // wrap the text around
         pane.setCenter(que); // set the center of the specific pane as the question
         Popup pop = new Popup(); // create popup
@@ -168,14 +171,18 @@ public class CountriesViewController implements Initializable {
         LabelContainer.setPadding(new Insets(5, 0, 0, 0));
         Label A = new Label("A. ");
         A.setTextFill(Color.WHITE);
+        A.setFont(Font.font(16)); // set font size
         Label B = new Label("B. ");
         B.setTextFill(Color.WHITE);
+        B.setFont(Font.font(16)); // set font size
         Label C = new Label("C. ");
         C.setTextFill(Color.WHITE);
+        C.setFont(Font.font(16)); // set font size
         if (Options[quenum][2].equals(""))
             C.setText(""); // set text to an empty string if the question has only 3 answer options
         Label D = new Label("D. ");
         D.setTextFill(Color.WHITE);
+        D.setFont(Font.font(16)); // set font size
         if (Options[quenum][3].equals(""))
             D.setText(""); // set text to an empty string if the question has only 3 answer options
         LabelContainer.getChildren().addAll(A, B, C, D);
@@ -186,6 +193,7 @@ public class CountriesViewController implements Initializable {
         AtomicBoolean isAud = new AtomicBoolean(); // for tracking the button value
         JFXButton aud = new JFXButton("Asked Audience?"); // button to check if the user asked the audience
         aud.setTextFill(Color.WHITE); // set the button text color
+        aud.setFont(Font.font(18)); // set font size
         aud.setStyle("-fx-cursor: hand;");
         aud.setOnAction(e -> {
             points = 5; // change the points to 5 when the user asks audience
@@ -214,6 +222,7 @@ public class CountriesViewController implements Initializable {
             if (seconds <= 0) {
                 disbtns(time, ans, timer, pane); // regular disable routine
                 pop.hide();
+                backbtn.setDisable(false); // re-enable the back button
             }
         });
         // some timeline stuff
@@ -229,6 +238,7 @@ public class CountriesViewController implements Initializable {
                 checkAnswer(btn, quenum);
                 disbtns(time, ans, timer, pane);
                 pop.hide();
+                backbtn.setDisable(false); // re-enable the back button
             });
 
         }
@@ -237,6 +247,7 @@ public class CountriesViewController implements Initializable {
         pop.setOpacity(1.0); // high priority for the pane
         pop.setOnHiding(e -> paneParent.setStyle("-fx-background-color: #d1ccc0")); // change the parent pane color after the popup disappears
         pop.show(rootPane.getScene().getWindow()); // show the popup using the current menu as the root
+        backbtn.setDisable(true); // disable the back button so it wont be pressed when the pop up is showing
         new ZoomIn(pane).play(); // zoom in animation for the pane inside the popup
     }
 
@@ -250,6 +261,7 @@ public class CountriesViewController implements Initializable {
             ans[i].setTextAlignment(TextAlignment.LEFT); // align button text to the left
             ans[i].setFocusTraversable(false); // hide the initial focus on the first button
             ans[i].setStyle("-fx-cursor: hand;");
+            ans[i].setFont(Font.font(16));
         }
 
         switch (quenum) {

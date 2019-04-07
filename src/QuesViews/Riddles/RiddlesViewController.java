@@ -36,7 +36,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class RiddlesViewController implements Initializable {
 
     private static int current; // current score
-    private final Integer Qtime = 10; // total time to give for each question
+    private final Integer Qtime = 30; // total time to give for each question
     private int points = 30; // points per question
     @FXML
     private BorderPane rootPane; // the main border pane
@@ -72,6 +72,8 @@ public class RiddlesViewController implements Initializable {
     private BorderPane que15;
     @FXML
     private BorderPane que16;
+    @FXML
+    private JFXButton backbtn;
     @FXML
     private Label Score; // label for tracking the score
     private String[] Ques = new String[16]; // the questions themselves
@@ -144,7 +146,7 @@ public class RiddlesViewController implements Initializable {
 
     private void initPane(int quenum, BorderPane paneParent) {
         BorderPane pane = new BorderPane(); // create a new pane instead of directly modifying the main pane
-        pane.setPrefSize(500, 500); // set preferred pane size
+        pane.setPrefSize(800, 600); // set preferred pane size
         pane.setStyle("-fx-background-color: #eb4d4b; -fx-border-color: #d1d8e0; -fx-border-width: 3; "); // set pane styling
         pane.setPadding(new Insets(10)); // set padding for all sides
         paneParent.getChildren().removeAll(); // remove the main pane children
@@ -152,6 +154,7 @@ public class RiddlesViewController implements Initializable {
         Label que = new Label(); // the question label
         que.setTextFill(Color.WHITE); // set the question color
         que.setWrapText(true); // wrap the text around
+        que.setFont(Font.font(20)); // set font size
         pane.setCenter(que); // set the center of the specific pane as the question
         Popup pop = new Popup(); // create popup
 
@@ -167,8 +170,10 @@ public class RiddlesViewController implements Initializable {
         LabelContainer.setPadding(new Insets(5, 0, 0, 0));
         Label A = new Label("A. ");
         A.setTextFill(Color.WHITE);
+        A.setFont(Font.font(16)); // set font size
         Label B = new Label("B. ");
         B.setTextFill(Color.WHITE);
+        B.setFont(Font.font(16));
         LabelContainer.getChildren().addAll(A, B);
 
         HBox contain = new HBox(); // new hbox to make it look like real life MCQ options
@@ -178,6 +183,7 @@ public class RiddlesViewController implements Initializable {
         JFXButton aud = new JFXButton("Asked Audience?"); // button to check if the user asked the audience
         aud.setTextFill(Color.WHITE); // set the button text color
         aud.setStyle("-fx-cursor: hand;");
+        aud.setFont(Font.font(16));
         aud.setOnAction(e -> {
             points = 5; // change the points to 5 when the user asks audience
             isAud.set(true); // set to true
@@ -205,6 +211,7 @@ public class RiddlesViewController implements Initializable {
             if (seconds <= 0) {
                 disbtns(time, ans, timer, pane); // regular disable routine
                 pop.hide();
+                backbtn.setDisable(false); // re-enable the back button
             }
         });
         // some timeline stuff
@@ -220,6 +227,7 @@ public class RiddlesViewController implements Initializable {
                 checkAnswer(btn);
                 disbtns(time, ans, timer, pane);
                 pop.hide();
+                backbtn.setDisable(false); // re-enable the back button
             });
 
         }
@@ -228,6 +236,7 @@ public class RiddlesViewController implements Initializable {
         pop.setOpacity(1.0); // high priority for the pane
         pop.setOnHiding(e -> paneParent.setStyle("-fx-background-color: #d1ccc0")); // change the parent pane color after the popup disappears
         pop.show(rootPane.getScene().getWindow()); // show the popup using the current menu as the root
+        backbtn.setDisable(true); // disable the back button so it wont be pressed when the pop up is showing
         new ZoomIn(pane).play(); // zoom in animation for the pane inside the popup
     }
 
@@ -241,6 +250,7 @@ public class RiddlesViewController implements Initializable {
             ans[i].setTextAlignment(TextAlignment.LEFT); // align button text to the left
             ans[i].setFocusTraversable(false); // hide the initial focus on the first button
             ans[i].setStyle("-fx-cursor: hand;");
+            ans[i].setFont(Font.font(16));
         }
 
         switch (quenum) {
