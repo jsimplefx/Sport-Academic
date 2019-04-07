@@ -102,67 +102,67 @@ public class ScienceViewController implements Initializable {
     @FXML
     void showQue(MouseEvent event) {
         if (event.getSource().equals(que1)) { // this is for later on when we sit different questions for each view
-            initPane(1, que1); // set the questions and shit based on the passed type
+            initPane(0, que1); // set the questions and shit based on the passed type
             que1.setOnMouseClicked(null); // disable mouse click even on the pane
         }
         else if (event.getSource().equals(que2)) {
-            initPane(2, que2);
+            initPane(1, que2);
             que2.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que3)) {
-            initPane(3, que3);
+            initPane(2, que3);
             que3.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que4)) {
-            initPane(4, que2);
+            initPane(3, que2);
             que4.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que5)) {
-            initPane(5, que5);
+            initPane(4, que5);
             que5.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que6)) {
-            initPane(6, que6);
+            initPane(5, que6);
             que6.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que7)) {
-            initPane(7, que7);
+            initPane(6, que7);
             que7.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que8)) {
-            initPane(8, que8);
+            initPane(7, que8);
             que8.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que9)) {
-            initPane(9, que9);
+            initPane(8, que9);
             que9.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que10)) {
-            initPane(10, que10);
+            initPane(9, que10);
             que10.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que11)) {
-            initPane(11, que11);
+            initPane(10, que11);
             que11.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que12)) {
-            initPane(12, que12);
+            initPane(11, que12);
             que12.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que13)) {
-            initPane(13, que13);
+            initPane(12, que13);
             que13.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que14)) {
-            initPane(14, que14);
+            initPane(13, que14);
             que14.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que15)) {
-            initPane(15, que15);
+            initPane(14, que15);
             que15.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que16)) {
-            initPane(16, que16);
+            initPane(15, que16);
             que16.setOnMouseClicked(null);
         }
     }
@@ -179,31 +179,32 @@ public class ScienceViewController implements Initializable {
         que.setTextFill(Color.WHITE); // set the question color
         que.setWrapText(true); // wrap the text around
         pane.setCenter(que); // set the center of the specific pane as the question
-
-
-
         Popup pop = new Popup(); // create popup
+
         JFXButton[] ans = new JFXButton[4]; // create option buttons
         setBtns(ans, quenum, que); // set the question and answers based on passed pane number
-
-        VBox options = new VBox(); //new Vbox
-        options.setAlignment(Pos.CENTER); // set the alignment of the items inside
-        options.setSpacing(10); // internal spacing
-        options.getChildren().setAll(ans); // add the yes and no bottoms
+        VBox optionsContainer = new VBox(); //new Vbox
+        optionsContainer.setAlignment(Pos.CENTER); // set the alignment of the items inside
+        optionsContainer.setSpacing(10); // internal spacing
+        optionsContainer.getChildren().setAll(ans); // add the yes and no bottoms
         VBox LabelContainer = new VBox();
+
         LabelContainer.setSpacing(20); // internal spacing
         LabelContainer.setPadding(new Insets(5, 0 ,0 , 0));
-        HBox contain = new HBox();
         Label A = new Label("A. ");
         A.setTextFill(Color.WHITE);
         Label B = new Label("B. ");
         B.setTextFill(Color.WHITE);
         Label C = new Label("C. ");
         C.setTextFill(Color.WHITE);
+        if (Options[quenum][2].equals("")) C.setText(""); // set text to an empty string if the question has only 3 answer options
         Label D = new Label("D. ");
         D.setTextFill(Color.WHITE);
+        if (Options[quenum][3].equals("")) D.setText(""); // set text to an empty string if the question has only 3 answer options
         LabelContainer.getChildren().addAll(A, B, C, D);
-        contain.getChildren().addAll(LabelContainer, options);
+
+        HBox contain = new HBox(); // new hbox to make it look like real life MCQ options
+        contain.getChildren().addAll(LabelContainer, optionsContainer);
         pane.setBottom(contain); // put the hbox at the bottom of the Border pane
 
         Label timer = new Label(); // timer label
@@ -253,108 +254,108 @@ public class ScienceViewController implements Initializable {
         }
 
         switch (quenum){
-            case 1:
+            case 0:
                 que.setText(Ques[0]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[0][j]);
                 }
                 break;
 
-            case 2:
+            case 1:
                 que.setText(Ques[1]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[1][j]);
                 }
                 break;
 
-            case 3:
+            case 2:
                 que.setText(Ques[2]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[2][j]);
                 }break;
 
-            case 4:
+            case 3:
                 que.setText(Ques[3]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[3][j]);
                 }
                 break;
 
-            case 5:
+            case 4:
                 que.setText(Ques[4]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[4][j]);
                 }
                 break;
 
-            case 6:
+            case 5:
                 que.setText(Ques[5]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[5][j]);
                 }break;
 
-            case 7:
+            case 6:
                 que.setText(Ques[6]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[6][j]);
                 }
                 break;
 
-            case 8:
+            case 7:
                 que.setText(Ques[7]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[7][j]);
                 }
                 break;
 
-            case 9:
+            case 8:
                 que.setText(Ques[8]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[8][j]);
                 }break;
 
-            case 10:
+            case 9:
                 que.setText(Ques[9]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[9][j]);
                 }
                 break;
 
-            case 11:
+            case 10:
                 que.setText(Ques[10]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[10][j]);
                 }
                 break;
 
-            case 12:
+            case 11:
                 que.setText(Ques[11]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[11][j]);
                 }break;
 
-            case 13:
+            case 12:
                 que.setText(Ques[12]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[12][j]);
                 }
                 break;
 
-            case 14:
+            case 13:
                 que.setText(Ques[13]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[13][j]);
                 }
                 break;
 
-            case 15:
+            case 14:
                 que.setText(Ques[14]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[14][j]);
                 }
                 break;
 
-            case 16:
+            case 15:
                 que.setText(Ques[15]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[15][j]);
@@ -380,22 +381,22 @@ public class ScienceViewController implements Initializable {
     private void checkAnswer(JFXButton selected, int quenum){
         int current = Integer.parseInt(Score.getText()); // to get the current score
         switch (quenum){
-            case 1: if (selected.getText().equals(Options[0][0])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 2: if (selected.getText().equals(Options[1][1])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 3: if (selected.getText().equals(Options[2][0])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 4: if (selected.getText().equals(Options[3][2])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 5: if (selected.getText().equals(Options[4][3])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 6: if (selected.getText().equals(Options[5][0])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 7: if (selected.getText().equals(Options[6][1])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 8: if (selected.getText().equals(Options[7][2])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 9: if (selected.getText().equals(Options[8][1])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 10: if (selected.getText().equals(Options[9][3])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 11: if (selected.getText().equals(Options[10][0])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 12: if (selected.getText().equals(Options[11][1])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 13: if (selected.getText().equals(Options[12][3])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 14: if (selected.getText().equals(Options[13][1])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 15: if (selected.getText().equals(Options[14][1])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 16: if (selected.getText().equals(Options[15][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 0: if (selected.getText().equals(Options[0][0])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 1: if (selected.getText().equals(Options[1][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 2: if (selected.getText().equals(Options[2][0])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 3: if (selected.getText().equals(Options[3][2])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 4: if (selected.getText().equals(Options[4][3])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 5: if (selected.getText().equals(Options[5][0])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 6: if (selected.getText().equals(Options[6][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 7: if (selected.getText().equals(Options[7][2])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 8: if (selected.getText().equals(Options[8][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 9: if (selected.getText().equals(Options[9][3])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 10: if (selected.getText().equals(Options[10][0])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 11: if (selected.getText().equals(Options[11][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 12: if (selected.getText().equals(Options[12][3])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 13: if (selected.getText().equals(Options[13][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 14: if (selected.getText().equals(Options[14][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 15: if (selected.getText().equals(Options[15][1])) Score.setText(String.valueOf(current + scores[1])); break;
         }
     }
 
