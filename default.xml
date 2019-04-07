@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>/run/media/Dark-Files/Stuff/IdeaProjects/Sport Academics/out/artifacts/Sport_Academics/Sport_Academics.jar</jar>
+  <outfile>/run/media/Dark-Files/Stuff/IdeaProjects/Sport Academics/out/artifacts/Sport_Academics/Sport_Academics.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>/run/media/Dark-Files/Stuff/IdeaProjects/Sport Academics/src/resources/sporde.ico</icon>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <bundledJreAsFallback>false</bundledJreAsFallback>
+    <minVersion>1.8.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.1</fileVersion>
+    <txtFileVersion>1.0.0.Final</txtFileVersion>
+    <fileDescription>IQ challenge app for Sport academic 2019</fileDescription>
+    <copyright>backsuan19</copyright>
+    <productVersion>1.0.0.1</productVersion>
+    <txtProductVersion>1.0.0.Final</txtProductVersion>
+    <productName>Sport Academic</productName>
+    <companyName></companyName>
+    <internalName>Sport_Academic</internalName>
+    <originalFilename>Sport Academic.exe</originalFilename>
+    <trademarks></trademarks>
+    <language>ENGLISH_US</language>
+  </versionInfo>
+</launch4jConfig>
