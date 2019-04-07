@@ -200,7 +200,7 @@ public class EntViewController implements Initializable {
         if (Options[quenum][2].equals("")) C.setText(""); // set text to an empty string if the question has only 3 answer options
         Label D = new Label("D. ");
         D.setTextFill(Color.WHITE);
-        if (Options[quenum][3].equals("")) C.setText(""); // set text to an empty string if the question has only 3 answer options
+        if (Options[quenum][3].equals("")) D.setText(""); // set text to an empty string if the question has only 3 answer options
         LabelContainer.getChildren().addAll(A, B, C, D);
 
         HBox contain = new HBox(); // new hbox to make it look like real life MCQ options
