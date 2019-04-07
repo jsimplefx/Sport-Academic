@@ -1,6 +1,6 @@
 package QuesViews.Entertainment;
 
-import animatefx.animation.FlipInY;
+import animatefx.animation.ZoomIn;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -16,9 +16,11 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -96,108 +98,113 @@ public class EntViewController implements Initializable {
         initStuff(); // init the questions and options first
     }
 
+
     @FXML
     void showQue(MouseEvent event) {
         if (event.getSource().equals(que1)) { // this is for later on when we sit different questions for each view
-            new FlipInY(que1).play(); // flip the view before updating it
             initPane(1, que1); // set the questions and shit based on the passed type
             que1.setOnMouseClicked(null); // disable mouse click even on the pane
         }
         else if (event.getSource().equals(que2)) {
-            new FlipInY(que2).play();
             initPane(2, que2);
             que2.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que3)) {
-            new FlipInY(que3).play();
             initPane(3, que3);
             que3.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que4)) {
-            new FlipInY(que4).play();
             initPane(4, que2);
             que4.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que5)) {
-            new FlipInY(que5).play();
             initPane(5, que5);
             que5.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que6)) {
-            new FlipInY(que6).play();
             initPane(6, que6);
             que6.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que7)) {
-            new FlipInY(que7).play();
             initPane(7, que7);
             que7.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que8)) {
-            new FlipInY(que8).play();
             initPane(8, que8);
             que8.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que9)) {
-            new FlipInY(que9).play();
             initPane(9, que9);
             que9.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que10)) {
-            new FlipInY(que10).play();
             initPane(10, que10);
             que10.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que11)) {
-            new FlipInY(que11).play();
             initPane(11, que11);
             que11.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que12)) {
-            new FlipInY(que12).play();
             initPane(12, que12);
             que12.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que13)) {
-            new FlipInY(que13).play();
             initPane(13, que13);
             que13.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que14)) {
-            new FlipInY(que14).play();
             initPane(14, que14);
             que14.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que15)) {
-            new FlipInY(que15).play();
             initPane(15, que15);
             que15.setOnMouseClicked(null);
         }
         else if (event.getSource().equals(que16)) {
-            new FlipInY(que16).play();
             initPane(16, que16);
             que16.setOnMouseClicked(null);
         }
     }
 
-    private void initPane(int quenum, BorderPane pane){
+
+    private void initPane(int quenum, BorderPane paneParent){
+        BorderPane pane = new BorderPane(); // create a new pane instead of directly modifying the main pane
+        pane.setMinSize(600, 600);  // set min size for the pane so it wont be small on the popup
+        pane.setStyle("-fx-background-color: #eb4d4b"); // set pane background color
+        pane.setPadding(new Insets(10)); // set padding for all sides
+        paneParent.getChildren().removeAll(); // remove the main pane children
+        paneParent.setCenter(pane); // set new pane as center
         Label que = new Label(); // the question label
         que.setTextFill(Color.WHITE); // set the question color
         que.setWrapText(true); // wrap the text around
         pane.setCenter(que); // set the center of the specific pane as the question
 
-        Popup pop = new Popup(); // create the popup
-        pane.setMinSize(600, 600);  // set min size for the pane so it wont be small on the popup
-        pop.getContent().setAll(pane); // set pop content as the pane
 
-        JFXButton[] ans = new JFXButton[4];
+
+        Popup pop = new Popup(); // create popup
+        JFXButton[] ans = new JFXButton[4]; // create option buttons
         setBtns(ans, quenum, que); // set the question and answers based on passed pane number
-        VBox options = new VBox(); // new hbox
+
+        VBox options = new VBox(); //new Vbox
         options.setAlignment(Pos.CENTER); // set the alignment of the items inside
         options.setSpacing(10); // internal spacing
-        options.setPadding(new Insets(0, 0, 10 , 0)); // set the padding inside
         options.getChildren().setAll(ans); // add the yes and no bottoms
-        pane.setBottom(options); // put the hbox at the bottom of the Border pane
+        VBox LabelContainer = new VBox();
+        LabelContainer.setSpacing(20); // internal spacing
+        LabelContainer.setPadding(new Insets(5, 0 ,0 , 0));
+        HBox contain = new HBox();
+        Label A = new Label("A. ");
+        A.setTextFill(Color.WHITE);
+        Label B = new Label("B. ");
+        B.setTextFill(Color.WHITE);
+        Label C = new Label("C. ");
+        C.setTextFill(Color.WHITE);
+        Label D = new Label("D. ");
+        D.setTextFill(Color.WHITE);
+        LabelContainer.getChildren().addAll(A, B, C, D);
+        contain.getChildren().addAll(LabelContainer, options);
+        pane.setBottom(contain); // put the hbox at the bottom of the Border pane
 
         Label timer = new Label(); // timer label
         timer.setTextFill(Color.WHITE); // color
@@ -212,10 +219,9 @@ public class EntViewController implements Initializable {
             timer.setText(seconds.toString()); // update the timer label
             if (seconds <= 0){
                 disbtns(time, ans , timer, pane); // regular disable routine
-                pop.hide(); // hide the pop if the time is up
+                pop.hide();
             }
         });
-
         // some timeline stuff
         time.setCycleCount(Timeline.INDEFINITE); //indefinite number of cycles
         time.getKeyFrames().add(frame); // add the frame to timer
@@ -224,13 +230,18 @@ public class EntViewController implements Initializable {
         for (JFXButton btn: ans) { // set the on click action on each button(here is a great example of why arrays are MVP)
             btn.setOnAction(e -> {checkAnswer(btn, quenum);
                 disbtns(time, ans, timer, pane);
-                pop.hide(); // hide the popup if the button was pressed
+                pop.hide();
             });
+
         }
-
-        pop.show(rootPane.getScene().getWindow()); // finally show the pop
-
+        pop.getContent().setAll(pane); // set the pane as the popup content
+        pop.setAutoFix(true); // auto fix the popup placement
+        pop.setOpacity(1.0); // high priority for the pane
+        pop.setOnHiding(e -> paneParent.setStyle("-fx-background-color: #d1ccc0")); // change the parent pane color after the popup disappears
+        pop.show(rootPane.getScene().getWindow()); // show the popup using the current menu as the root
+        new ZoomIn(pane).play(); // zoom in animation for the pane inside the popup
     }
+
 
     // setup the answers on the buttons.
     private void setBtns(JFXButton[] ans, int quenum, Label que) {
@@ -238,115 +249,115 @@ public class EntViewController implements Initializable {
             ans[i] = new JFXButton(); // init the buttons
             ans[i].setTextFill(Color.WHITE); // set button text color
             ans[i].setWrapText(true); // wrap the text around
+            ans[i].setTextAlignment(TextAlignment.LEFT);
         }
 
         switch (quenum){
             case 1:
                 que.setText(Ques[0]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[0][j]);
+                    ans[j].setText(Options[0][j]);
                 }
                 break;
 
             case 2:
                 que.setText(Ques[1]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[1][j]);
+                    ans[j].setText(Options[1][j]);
                 }
                 break;
 
             case 3:
                 que.setText(Ques[2]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[2][j]);
+                    ans[j].setText(Options[2][j]);
                 }break;
 
             case 4:
                 que.setText(Ques[3]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[3][j]);
+                    ans[j].setText(Options[3][j]);
                 }
                 break;
 
             case 5:
                 que.setText(Ques[4]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[3][j]);
+                    ans[j].setText(Options[4][j]);
                 }
                 break;
 
             case 6:
                 que.setText(Ques[5]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[6][j]);
+                    ans[j].setText(Options[5][j]);
                 }break;
 
             case 7:
                 que.setText(Ques[6]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[6][j]);
+                    ans[j].setText(Options[6][j]);
                 }
                 break;
 
             case 8:
                 que.setText(Ques[7]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[7][j]);
+                    ans[j].setText(Options[7][j]);
                 }
                 break;
 
             case 9:
                 que.setText(Ques[8]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[8][j]);
+                    ans[j].setText(Options[8][j]);
                 }break;
 
             case 10:
                 que.setText(Ques[9]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[9][j]);
+                    ans[j].setText(Options[9][j]);
                 }
                 break;
 
             case 11:
                 que.setText(Ques[10]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[10][j]);
+                    ans[j].setText(Options[10][j]);
                 }
                 break;
 
             case 12:
                 que.setText(Ques[11]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[11][j]);
+                    ans[j].setText(Options[11][j]);
                 }break;
 
             case 13:
                 que.setText(Ques[12]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[12][j]);
+                    ans[j].setText(Options[12][j]);
                 }
                 break;
 
             case 14:
                 que.setText(Ques[13]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[13][j]);
+                    ans[j].setText(Options[13][j]);
                 }
                 break;
 
             case 15:
                 que.setText(Ques[14]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[14][j]);
+                    ans[j].setText(Options[14][j]);
                 }
                 break;
-
 
             case 16:
                 que.setText(Ques[15]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
-                    ans[j].setText(j +". " + Options[15][j]);
+                    ans[j].setText(Options[15][j]);
                 }
                 break;
         }
@@ -354,25 +365,7 @@ public class EntViewController implements Initializable {
     }
 
 
-    // check if the text on a passed item is correct (this is gonna be hardwired to the right answer from Options[][]).
-    private void checkAnswer(JFXButton selected, int quenum){
-        int current = Integer.parseInt(Score.getText()); // to get the current score
-        switch (quenum){
-            case 1:
-                if (selected.getText().equals(Options[0][0])){ // compare to the correct answer in array
-                        Score.setText(String.valueOf(current + scores[1])); // set the score label text
-                }
-                break;
-            case 2:
-                if (selected.getText().equals(Options[0][0])){ // compare to the correct answer in array
-                    Score.setText(String.valueOf(current + scores[1])); // set the score label text
-                }
-                break;
-        }
-    }
-
-
-    // some cleanup routine.
+    // some cleanup routine. (not needed anymore since we hide the whole panel but since removing it fucks up the timer it stays
     private void disbtns(Timeline t, JFXButton[] a, Label l, BorderPane pane){
         t.stop(); // stop the timer
         for(JFXButton btn: a) { btn.setDisable(true); } // disable the buttons
@@ -380,6 +373,131 @@ public class EntViewController implements Initializable {
         pane.setCenter(null); // hide the question
         pane.setOnMouseClicked(null); // disable panel click action
         seconds = 10; // reset the interval for the question
+    }
+
+
+    // check if the text on a passed item is correct (this is gonna be hardwired to the right answer from Options[][]).
+    private void checkAnswer(JFXButton selected, int quenum){
+        int current = Integer.parseInt(Score.getText()); // to get the current score
+        switch (quenum){
+            case 1: if (selected.getText().equals(Options[0][0])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 2: if (selected.getText().equals(Options[1][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 3: if (selected.getText().equals(Options[2][0])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 4: if (selected.getText().equals(Options[3][2])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 5: if (selected.getText().equals(Options[4][3])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 6: if (selected.getText().equals(Options[5][0])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 7: if (selected.getText().equals(Options[6][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 8: if (selected.getText().equals(Options[7][2])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 9: if (selected.getText().equals(Options[8][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 10: if (selected.getText().equals(Options[9][3])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 11: if (selected.getText().equals(Options[10][0])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 12: if (selected.getText().equals(Options[11][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 13: if (selected.getText().equals(Options[12][3])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 14: if (selected.getText().equals(Options[13][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 15: if (selected.getText().equals(Options[14][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 16: if (selected.getText().equals(Options[15][1])) Score.setText(String.valueOf(current + scores[1])); break;
+        }
+    }
+
+
+    // set the answer options and question on their arrays
+    private void initStuff(){
+        Ques[0] = "What is the radius of earth?";
+        Options[0][0] = "6.371KM"; // correct
+        Options[0][1] = "7072KM";
+        Options[0][2] = "9096KM";
+        Options[0][3] = "3.963KM";
+
+        Ques[1] = "Name the chemical used to make the toothpaste white? ";
+        Options[1][0] = "Sulphuric acid";
+        Options[1][1] = "Titanium dioxide"; // correct
+        Options[1][2] = "hydrochloric acid";
+        Options[1][3] = "nitric acid";
+
+        Ques[2] = "Who invented periodic table?";
+        Options[2][0] = "Dmitri Mendeleev."; // correct
+        Options[2][1] = "John Dalton.";
+        Options[2][2] = "Ernest Rutherford";
+        Options[2][3] = " Sir Joseph John Thomson.";
+
+        Ques[3] = "What is the main cause of seasons on the Earth?";
+        Options[3][0] = "the distance between the earth and the sun";
+        Options[3][1] = "changes in the amount of energy coming from the sun";
+        Options[3][2] = "the title of the earth's axis in relation to the sun"; // correct
+        Options[3][3] = "the speed that the earth rotates around the sun";
+
+        Ques[4] = "Which of the following memory is required to store data so that ,further requests for that data can be served faster ?";
+        Options[4][0] = "Flash memory";
+        Options[4][1] = "Flip Flop";
+        Options[4][2] = "External Hard disk";
+        Options[4][3] = " Cache memory"; // correct
+
+        Ques[5] = ".Which Vitamin deficiency causes night blindness ?";
+        Options[5][0] = "vitamin A."; // correct
+        Options[5][1] = "vitamin K.";
+        Options[5][2] = "vitamin D.";
+        Options[5][3] = "vitamin C++."; // yup thats a thing
+
+        Ques[6] = "Which of the Following day is Celebrated as –Pi day?";
+        Options[6][0] = "26 July.";
+        Options[6][1] = "14 March."; // correct
+        Options[6][2] = "27 December";
+        Options[6][3] = "17 April";
+
+        Ques[7] = "Many diseases have an incubation period.  what is an  incubation period ?";
+        Options[7][0] = "The effect of a disease on babies.";
+        Options[7][1] = "The period during which someone builds up immunity to a disease";
+        Options[7][2] = "The period during which someone has an infection, but is not showing symptoms."; // correct
+        Options[7][3] = "The recovery period after being sick";
+
+        Ques[8] = "An antacid relieves an overly acidic stomach because the main components of antacids are …";
+        Options[8][0] = "Neutral";
+        Options[8][1] = "Bases"; // correct
+        Options[8][2] = "Isotopes";
+        Options[8][3] = "Acids";
+
+        Ques[9] = "Which of these is a major concern about the overuse of antibiotic";
+        Options[9][0] = "Antibiotics will get into the water system";
+        Options[9][1] = "Antibiotics can cause secondary infections";
+        Options[9][2] = "There will be an antibiotic shortage";
+        Options[9][3] = "It can lead to antibiotic-resistant bacteria"; // correct
+
+        Ques[10] = "What is name of The deepest point in all of the world’s oceans?";
+        Options[10][0] = "Mariana Trench"; // correct
+        Options[10][1] = "Point of immersion";
+        Options[10][2] = "Bermuda";
+        Options[10][3] = "Sirena Deep";
+
+        Ques[11] = "What is the biggest planet in our solar system?";
+        Options[11][0] = "saturn";
+        Options[11][1] = "Jupiter"; // correct
+        Options[11][2] = "Uranus";
+        Options[11][3] = "Neptune";
+
+        Ques[12] = "What is the 7th element on the periodic table of elements?";
+        Options[12][0] = "OXYGEN";
+        Options[12][1] = "NEON";
+        Options[12][2] = "FLUORINE";
+        Options[12][3] = "NITROGEN"; // correct
+
+        Ques[13] = "The wire inside an electric bulb is known as the what? ";
+        Options[13][0] = "THWN/THHN";
+        Options[13][1] = "filament"; //correct
+        Options[13][2] = "multiconductor wire";
+        Options[13][3] = "Grounding wire";
+
+        Ques[14] = "Who is the Hubble Space Telescope named after? ";
+        Options[14][0] = "Thomas Hubble";
+        Options[14][1] = "Edwin Hubble"; // correct
+        Options[14][2] = "Edward Hubble";
+        Options[14][3] = "James Hubble";
+
+        Ques[15] = "What planet is nicknamed the ‘Red Planet’?";
+        Options[15][0] = "Neptune";
+        Options[15][1] = "Mars"; // correct
+        Options[15][2] = "Mercury";
+        Options[15][3] = "Saturn";
+
     }
 
 
@@ -409,106 +527,6 @@ public class EntViewController implements Initializable {
                 e.printStackTrace();
             }
         }
-    }
-
-    // set the answer options and question on their arrays
-    private void initStuff(){
-        Ques[0] = "";
-        Options[0][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[0][1] = "changes in the amount of energy coming from the sun";
-        Options[0][2] = "the distance between the earth and the sun";
-        Options[0][3] = "the speed that the earth rotates around the sun";
-
-        Ques[1] = "";
-        Options[1][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[1][1] = "changes in the amount of energy coming from the sun";
-        Options[1][2] = "the distance between the earth and the sun";
-        Options[1][3] = "the speed that the earth rotates around the sun";
-
-        Ques[2] = "";
-        Options[2][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[2][1] = "changes in the amount of energy coming from the sun";
-        Options[2][2] = "the distance between the earth and the sun";
-        Options[2][3] = "the speed that the earth rotates around the sun";
-
-        Ques[3] = "";
-        Options[3][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[3][1] = "changes in the amount of energy coming from the sun";
-        Options[3][2] = "the distance between the earth and the sun";
-        Options[3][3] = "the speed that the earth rotates around the sun";
-
-        Ques[4] = "";
-        Options[4][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[4][1] = "changes in the amount of energy coming from the sun";
-        Options[4][2] = "the distance between the earth and the sun";
-        Options[4][3] = "the speed that the earth rotates around the sun";
-
-        Ques[5] = "";
-        Options[5][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[5][1] = "changes in the amount of energy coming from the sun";
-        Options[5][2] = "the distance between the earth and the sun";
-        Options[5][3] = "the speed that the earth rotates around the sun";
-
-        Ques[6] = "";
-        Options[6][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[6][1] = "changes in the amount of energy coming from the sun";
-        Options[6][2] = "the distance between the earth and the sun";
-        Options[6][3] = "the speed that the earth rotates around the sun";
-
-        Ques[7] = "";
-        Options[7][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[7][1] = "changes in the amount of energy coming from the sun";
-        Options[7][2] = "the distance between the earth and the sun";
-        Options[7][3] = "the speed that the earth rotates around the sun";
-
-        Ques[8] = "";
-        Options[8][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[8][1] = "changes in the amount of energy coming from the sun";
-        Options[8][2] = "the distance between the earth and the sun";
-        Options[8][3] = "the speed that the earth rotates around the sun";
-
-        Ques[9] = "";
-        Options[9][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[9][1] = "changes in the amount of energy coming from the sun";
-        Options[9][2] = "the distance between the earth and the sun";
-        Options[9][3] = "the speed that the earth rotates around the sun";
-
-        Ques[10] = "";
-        Options[10][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[10][1] = "changes in the amount of energy coming from the sun";
-        Options[10][2] = "the distance between the earth and the sun";
-        Options[10][3] = "the speed that the earth rotates around the sun";
-
-        Ques[11] = "";
-        Options[11][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[11][1] = "changes in the amount of energy coming from the sun";
-        Options[11][2] = "the distance between the earth and the sun";
-        Options[11][3] = "the speed that the earth rotates around the sun";
-
-        Ques[12] = "";
-        Options[12][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[12][1] = "changes in the amount of energy coming from the sun";
-        Options[12][2] = "the distance between the earth and the sun";
-        Options[12][3] = "the speed that the earth rotates around the sun";
-
-        Ques[13] = "";
-        Options[13][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[13][1] = "changes in the amount of energy coming from the sun";
-        Options[13][2] = "the distance between the earth and the sun";
-        Options[13][3] = "the speed that the earth rotates around the sun";
-
-        Ques[14] = "";
-        Options[14][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[14][1] = "changes in the amount of energy coming from the sun";
-        Options[14][2] = "the distance between the earth and the sun";
-        Options[14][3] = "the speed that the earth rotates around the sun";
-
-        Ques[15] = "";
-        Options[15][0] = "the title of the earth's axis in relation to the sun"; // how answers are gonna be set later
-        Options[15][1] = "changes in the amount of energy coming from the sun";
-        Options[15][2] = "the distance between the earth and the sun";
-        Options[15][3] = "the speed that the earth rotates around the sun";
-
     }
 }
 
