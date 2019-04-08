@@ -1,5 +1,6 @@
 package QuesViews.Religion;
 
+import CatView.CatViewController;
 import animatefx.animation.ZoomIn;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
@@ -83,10 +84,10 @@ public class ReligionViewController implements Initializable {
     @FXML
     private BorderPane que16;
 
-
     @FXML
-    private Label Score; // label for tracking the score
+    private Label Score; // label for tracking the points
 
+    private static int current; // current score
     private String[][] Options = new String[16][4]; // the answer options
     private String[] Ques = new String[16]; // the questions themselves
     private final Integer Qtime = 10; // total time to give for each question
@@ -94,80 +95,70 @@ public class ReligionViewController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initStuff(); // init the questions and options first
+        initStuff(); // init the questions and options firstString
+        Score.setText(String.valueOf(current)); // set value of score label based on the tracked current score across all categories
     }
 
+    // setter for current
+    public static void setCurrent(int current) {
+        ReligionViewController.current = current;
+    }
 
     @FXML
     void showQue(MouseEvent event) {
         if (event.getSource().equals(que1)) { // this is for later on when we sit different questions for each view
             initPane(0, que1); // set the questions and shit based on the passed type
             que1.setOnMouseClicked(null); // disable mouse click even on the pane
-        }
-        else if (event.getSource().equals(que2)) {
+        } else if (event.getSource().equals(que2)) {
             initPane(1, que2);
             que2.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que3)) {
+        } else if (event.getSource().equals(que3)) {
             initPane(2, que3);
             que3.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que4)) {
+        } else if (event.getSource().equals(que4)) {
             initPane(3, que2);
             que4.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que5)) {
+        } else if (event.getSource().equals(que5)) {
             initPane(4, que5);
             que5.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que6)) {
+        } else if (event.getSource().equals(que6)) {
             initPane(5, que6);
             que6.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que7)) {
+        } else if (event.getSource().equals(que7)) {
             initPane(6, que7);
             que7.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que8)) {
+        } else if (event.getSource().equals(que8)) {
             initPane(7, que8);
             que8.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que9)) {
+        } else if (event.getSource().equals(que9)) {
             initPane(8, que9);
             que9.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que10)) {
+        } else if (event.getSource().equals(que10)) {
             initPane(9, que10);
             que10.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que11)) {
+        } else if (event.getSource().equals(que11)) {
             initPane(10, que11);
             que11.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que12)) {
+        } else if (event.getSource().equals(que12)) {
             initPane(11, que12);
             que12.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que13)) {
+        } else if (event.getSource().equals(que13)) {
             initPane(12, que13);
             que13.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que14)) {
+        } else if (event.getSource().equals(que14)) {
             initPane(13, que14);
             que14.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que15)) {
+        } else if (event.getSource().equals(que15)) {
             initPane(14, que15);
             que15.setOnMouseClicked(null);
-        }
-        else if (event.getSource().equals(que16)) {
+        } else if (event.getSource().equals(que16)) {
             initPane(15, que16);
             que16.setOnMouseClicked(null);
         }
     }
 
 
-    private void initPane(int quenum, BorderPane paneParent){
+    private void initPane(int quenum, BorderPane paneParent) {
         BorderPane pane = new BorderPane(); // create a new pane instead of directly modifying the main pane
         pane.setPrefSize(500, 500); // set preferred pane size
         pane.setStyle("-fx-background-color: #eb4d4b;"); // set pane background color
@@ -189,7 +180,7 @@ public class ReligionViewController implements Initializable {
 
         VBox LabelContainer = new VBox();
         LabelContainer.setSpacing(20); // internal spacing
-        LabelContainer.setPadding(new Insets(5, 0 ,0 , 0));
+        LabelContainer.setPadding(new Insets(5, 0, 0, 0));
         Label A = new Label("A. ");
         A.setTextFill(Color.WHITE);
         Label B = new Label("B. ");
@@ -211,14 +202,14 @@ public class ReligionViewController implements Initializable {
         timer.setFont(Font.font(30)); // set font size
         pane.setTop(timer); // set timer to top of pane
         BorderPane.setAlignment(timer, Pos.CENTER); // position the label to the middle of the top
-        BorderPane.setMargin(timer, new Insets(10, 0, 0 ,0)); // 10px padding from top
+        BorderPane.setMargin(timer, new Insets(10, 0, 0, 0)); // 10px padding from top
 
         Timeline time = new Timeline(); // new frame(the only actual way to update a view per second)
         KeyFrame frame = new KeyFrame( Duration.seconds(1), e -> {
             seconds--; // the global seconds variable
             timer.setText(seconds.toString()); // update the timer label
-            if (seconds <= 0){
-                disbtns(time, ans , timer, pane); // regular disable routine
+            if (seconds <= 0) {
+                disbtns(time, ans, timer, pane); // regular disable routine
                 pop.hide();
             }
         });
@@ -227,8 +218,9 @@ public class ReligionViewController implements Initializable {
         time.getKeyFrames().add(frame); // add the frame to timer
         time.playFromStart(); // play timer from start every time
 
-        for (JFXButton btn: ans) { // set the on click action on each button(here is a great example of why arrays are MVP)
-            btn.setOnAction(e -> {checkAnswer(btn, quenum);
+        for (JFXButton btn : ans) { // set the on click action on each button(here is a great example of why arrays are MVP)
+            btn.setOnAction(e -> {
+                checkAnswer(btn, quenum);
                 disbtns(time, ans, timer, pane);
                 pop.hide();
             });
@@ -253,7 +245,7 @@ public class ReligionViewController implements Initializable {
             ans[i].setFocusTraversable(false); // hide the initial focus on the first button
         }
 
-        switch (quenum){
+        switch (quenum) {
             case 0:
                 que.setText(Ques[0]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
@@ -272,7 +264,8 @@ public class ReligionViewController implements Initializable {
                 que.setText(Ques[2]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[2][j]);
-                }break;
+                }
+                break;
 
             case 3:
                 que.setText(Ques[3]); // the question
@@ -292,7 +285,8 @@ public class ReligionViewController implements Initializable {
                 que.setText(Ques[5]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[5][j]);
-                }break;
+                }
+                break;
 
             case 6:
                 que.setText(Ques[6]); // the question
@@ -312,7 +306,8 @@ public class ReligionViewController implements Initializable {
                 que.setText(Ques[8]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[8][j]);
-                }break;
+                }
+                break;
 
             case 9:
                 que.setText(Ques[9]); // the question
@@ -332,7 +327,8 @@ public class ReligionViewController implements Initializable {
                 que.setText(Ques[11]); // the question
                 for (int j = 0; j < 4; j++) { // set the text on the buttons based on the question
                     ans[j].setText(Options[11][j]);
-                }break;
+                }
+                break;
 
             case 12:
                 que.setText(Ques[12]); // the question
@@ -367,9 +363,11 @@ public class ReligionViewController implements Initializable {
 
 
     // some cleanup routine. (not needed anymore since we hide the whole panel but since removing it fucks up the timer it stays
-    private void disbtns(Timeline t, JFXButton[] a, Label l, BorderPane pane){
+    private void disbtns(Timeline t, JFXButton[] a, Label l, BorderPane pane) {
         t.stop(); // stop the timer
-        for(JFXButton btn: a) { btn.setDisable(true); } // disable the buttons
+        for (JFXButton btn : a) {
+            btn.setDisable(true);
+        } // disable the buttons
         l.setVisible(false); // hide the timer label
         pane.setCenter(null); // hide the question
         pane.setOnMouseClicked(null); // disable panel click action
@@ -404,7 +402,7 @@ public class ReligionViewController implements Initializable {
 
 
     // set the answer options and question on their arrays
-    private void initStuff(){
+    private void initStuff() {
         Ques[0] = "The founder of Hinduism";
         Options[0][0] = "Gadadhar Chatterji";
         Options[0][1] = "Brahman"; // correct
@@ -508,10 +506,11 @@ public class ReligionViewController implements Initializable {
     @FXML
     void backToTypes() {
         // first confirm the action then proceed
+        CatViewController.setScore(Integer.valueOf(Score.getText())); // save the current score in category controller
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Go back");
         alert.setHeaderText("Are you sure You want to go back?");
-        alert.setContentText("This action will delete the current score!");
+        alert.setContentText("This action will reset all the questions");
         ButtonType Yes = new ButtonType("Yes");
         ButtonType No = new ButtonType("No");
         alert.getButtonTypes().setAll(Yes, No);

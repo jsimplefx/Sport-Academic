@@ -1,5 +1,11 @@
 package CatView;
 
+import QuesViews.Countries.CountriesViewController;
+import QuesViews.Entertainment.EntViewController;
+import QuesViews.History.HistoryViewController;
+import QuesViews.Religion.ReligionViewController;
+import QuesViews.Science.ScienceViewController;
+import QuesViews.Sports.SportsViewController;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -43,9 +49,18 @@ public class CatViewController implements Initializable {
     @FXML
     private BorderPane typeI;
 
+    private static int score = 0;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public static void setScore(int score) {
+        CatViewController.score = score;
     }
 
     @FXML
@@ -86,12 +101,29 @@ public class CatViewController implements Initializable {
         */
         String view = null; // hold the requested view string
         switch (num){ // check the passed number and set view accordingly
-            case 1: view = "/QuesViews/Science/ScienceView.fxml"; break;
-            case 2: view = "/QuesViews/Entertainment/EntView.fxml"; break;
-            case 3: view = "/QuesViews/Countries/CountriesView.fxml"; break;
-            case 4: view = "/QuesViews/Sports/SportsView.fxml"; break;
-            case 5: view = "/QuesViews/History/HistoryView.fxml"; break;
-            case 6: view = "/QuesViews/Religion/ReligionView.fxml"; break;
+            case 1:
+                view = "/QuesViews/Science/ScienceView.fxml";
+                ScienceViewController.setCurrent(score);
+                break;
+            case 2:
+                view = "/QuesViews/Entertainment/EntView.fxml";
+                EntViewController.setCurrent(score);
+                break;
+            case 3:
+                view = "/QuesViews/Countries/CountriesView.fxml";
+                CountriesViewController.setCurrent(score);
+                break;
+            case 4:
+                view = "/QuesViews/Sports/SportsView.fxml";
+                SportsViewController.setCurrent(score);
+                break;
+            case 5:
+                view = "/QuesViews/History/HistoryView.fxml";
+                HistoryViewController.setCurrent(score);
+                break;
+            case 6: view = "/QuesViews/Religion/ReligionView.fxml";
+                    ReligionViewController.setCurrent(score);
+                    break;
             case 7: view = "/QuesViews/Riddles/RiddlesView.fxml"; break;
             case 8: view = "/QuesViews/IIUM/IIUMView.fxml"; break;
         }
@@ -99,6 +131,7 @@ public class CatViewController implements Initializable {
         // load the set view
         try {
             Parent root = FXMLLoader.load(getClass().getResource(view));
+            System.out.println(score);
             Scene scene = new Scene(root);
             Stage stage = new Stage();
             stage.setTitle(type); // set window name as the passed type

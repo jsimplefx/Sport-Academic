@@ -1,5 +1,6 @@
 package QuesViews.Science;
 
+import CatView.CatViewController;
 import animatefx.animation.ZoomIn;
 import com.jfoenix.controls.JFXButton;
 import javafx.animation.KeyFrame;
@@ -87,7 +88,7 @@ public class ScienceViewController implements Initializable {
     @FXML
     private Label Score; // label for tracking the score
 
-    private int[] scores = {10, 20}; // the scores
+    private static int current; // current score
     private String[][] Options = new String[16][4]; // the answer options
     private String[] Ques = new String[16]; // the questions themselves
     private final Integer Qtime = 10; // total time to give for each question
@@ -96,8 +97,13 @@ public class ScienceViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         initStuff(); // init the questions and options first
+        Score.setText(String.valueOf(current)); // set value of score label based on the tracked current score across all categories
     }
 
+    // setter for current
+    public static void setCurrent(int current) {
+        ScienceViewController.current = current;
+    }
 
     @FXML
     void showQue(MouseEvent event) {
@@ -381,23 +387,24 @@ public class ScienceViewController implements Initializable {
     // check if the text on a passed item is correct (this is gonna be hardwired to the right answer from Options[][]).
     private void checkAnswer(JFXButton selected, int quenum){
         int current = Integer.parseInt(Score.getText()); // to get the current score
+        int points = 10;
         switch (quenum){
-            case 0: if (selected.getText().equals(Options[0][0])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 1: if (selected.getText().equals(Options[1][1])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 2: if (selected.getText().equals(Options[2][0])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 3: if (selected.getText().equals(Options[3][2])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 4: if (selected.getText().equals(Options[4][3])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 5: if (selected.getText().equals(Options[5][0])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 6: if (selected.getText().equals(Options[6][1])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 7: if (selected.getText().equals(Options[7][2])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 8: if (selected.getText().equals(Options[8][1])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 9: if (selected.getText().equals(Options[9][3])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 10: if (selected.getText().equals(Options[10][0])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 11: if (selected.getText().equals(Options[11][1])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 12: if (selected.getText().equals(Options[12][3])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 13: if (selected.getText().equals(Options[13][1])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 14: if (selected.getText().equals(Options[14][1])) Score.setText(String.valueOf(current + scores[1])); break;
-            case 15: if (selected.getText().equals(Options[15][1])) Score.setText(String.valueOf(current + scores[1])); break;
+            case 0: if (selected.getText().equals(Options[0][0])) Score.setText(String.valueOf(current + points)); break;
+            case 1: if (selected.getText().equals(Options[1][1])) Score.setText(String.valueOf(current + points)); break;
+            case 2: if (selected.getText().equals(Options[2][0])) Score.setText(String.valueOf(current + points)); break;
+            case 3: if (selected.getText().equals(Options[3][2])) Score.setText(String.valueOf(current + points)); break;
+            case 4: if (selected.getText().equals(Options[4][3])) Score.setText(String.valueOf(current + points)); break;
+            case 5: if (selected.getText().equals(Options[5][0])) Score.setText(String.valueOf(current + points)); break;
+            case 6: if (selected.getText().equals(Options[6][1])) Score.setText(String.valueOf(current + points)); break;
+            case 7: if (selected.getText().equals(Options[7][2])) Score.setText(String.valueOf(current + points)); break;
+            case 8: if (selected.getText().equals(Options[8][1])) Score.setText(String.valueOf(current + points)); break;
+            case 9: if (selected.getText().equals(Options[9][3])) Score.setText(String.valueOf(current + points)); break;
+            case 10: if (selected.getText().equals(Options[10][0])) Score.setText(String.valueOf(current + points)); break;
+            case 11: if (selected.getText().equals(Options[11][1])) Score.setText(String.valueOf(current + points)); break;
+            case 12: if (selected.getText().equals(Options[12][3])) Score.setText(String.valueOf(current + points)); break;
+            case 13: if (selected.getText().equals(Options[13][1])) Score.setText(String.valueOf(current + points)); break;
+            case 14: if (selected.getText().equals(Options[14][1])) Score.setText(String.valueOf(current + points)); break;
+            case 15: if (selected.getText().equals(Options[15][1])) Score.setText(String.valueOf(current + points)); break;
         }
     }
 
@@ -507,10 +514,11 @@ public class ScienceViewController implements Initializable {
     @FXML
     void backToTypes() {
         // first confirm the action then proceed
+        CatViewController.setScore(Integer.parseInt(Score.getText())); // save the current score in category controller
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Go back");
         alert.setHeaderText("Are you sure You want to go back?");
-        alert.setContentText("This action will delete the current score!");
+        alert.setContentText("This action will reset all the questions");
         ButtonType Yes = new ButtonType("Yes");
         ButtonType No = new ButtonType("No");
         alert.getButtonTypes().setAll(Yes, No);
