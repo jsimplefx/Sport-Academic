@@ -299,7 +299,7 @@ public class RiddlesViewController implements Initializable {
             case 14:
                 que.setText(Ques[14]);
                 break;
-            case 16:
+            case 15:
                 que.setText(Ques[15]);
                 break;
         }
