@@ -72,7 +72,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/QuesViews/Religion/ReligionViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1449">
+            <state relative-caret-position="3108">
               <caret line="148" column="21" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
               <folding>
                 <element signature="method#showQue#0;class#ReligionViewController#0" />
@@ -87,7 +87,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/QuesViews/Sports/SportsViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
+            <state relative-caret-position="2940">
               <caret line="140" column="61" selection-start-line="140" selection-start-column="61" selection-end-line="140" selection-end-column="61" />
               <folding>
                 <element signature="method#showQue#0;class#SportsViewController#0" />
@@ -104,7 +104,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/QuesViews/Riddles/RiddlesViewController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4765">
+            <state relative-caret-position="756">
               <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
               <folding>
                 <element signature="method#showQue#0;class#RiddlesViewController#0" />
@@ -227,6 +227,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -238,27 +239,6 @@
               <item name="Sport Academics" type="b2602c69:ProjectViewProjectNode" />
               <item name="Sport Academics" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Sport Academics" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Sport Academics" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="Sport Academics" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Sport Academics" type="616d4139:PackageViewModuleNode" />
-              <item name="QuesViews" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="Sport Academics" type="58d84e3e:PackageViewProjectNode" />
-              <item name="Sport Academics" type="616d4139:PackageViewModuleNode" />
-              <item name="Stylesheet" type="1f31426a:PackageElementNode" />
             </path>
           </expand>
           <select />
@@ -419,7 +399,7 @@
   <component name="ToolWindowManager">
     <frame x="10" y="39" width="1346" height="719" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16121842" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.16092815" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" weight="0.32986626" />
       <window_info id="Designer" order="3" />
@@ -682,7 +662,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/QuesViews/Religion/ReligionViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1449">
+        <state relative-caret-position="3108">
           <caret line="148" column="21" selection-start-line="148" selection-start-column="21" selection-end-line="148" selection-end-column="21" />
           <folding>
             <element signature="method#showQue#0;class#ReligionViewController#0" />
@@ -695,7 +675,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/QuesViews/Riddles/RiddlesViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4765">
+        <state relative-caret-position="756">
           <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="method#showQue#0;class#RiddlesViewController#0" />
@@ -706,7 +686,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/QuesViews/Sports/SportsViewController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
+        <state relative-caret-position="2940">
           <caret line="140" column="61" selection-start-line="140" selection-start-column="61" selection-end-line="140" selection-end-column="61" />
           <folding>
             <element signature="method#showQue#0;class#SportsViewController#0" />
